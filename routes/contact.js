@@ -5,21 +5,28 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
-  router.get("/contact", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+  // GET /contact/
+  router.get("/", (req, res) => {
+    db.query("SELECT * FROM orders;").then((response) => {
+      let templateVars = {
+        orders: response.rows,
+      };
+      res.render("orders", templateVars);
+    });
+  });
+
+  // GET /contact:id
+  router.get("/:id", (req, res) => {
+    db.query("SELECT * FROM orders WHERE id = $1;", [req.params.id]).then(
+      (response) => {
+        let templateVars = { showOrder: res.json(response.rows[0]) };
+        res.render("orders_show", templateVars);
+      }
+    );
   });
   return router;
 };
