@@ -6,7 +6,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM dishes;`)
       .then(data => {
         let menu = data.rows;
-
+        console.log('menu:' ,menu)
         let templateVars = { menu }
         res.render('dishes', templateVars);
       })
@@ -18,4 +18,5 @@ module.exports = (db) => {
   });
   return router;
 };
+
 
