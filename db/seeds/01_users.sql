@@ -5,13 +5,6 @@ INSERT INTO users (name, email, password, is_admin, phone) VALUES
 ('Charlie', 'c@c.com', 'password', TRUE, '555-555-5555');
 
 
--- *Orders* table seeds here:
-INSERT INTO orders (timestamp, is_ready, total_price, taxes, tip, notes, approx_time, dish_id, method_id, user_id)
-VALUES
-('2022-06-01 00:00:00', FALSE, 100, 10, 10, 'notes 01 here', 10, 1, 1, 1),
-('2022-06-02 00:00:00', FALSE, 200, 20, 20, 'notes 02 here', 20, 2, 2, 1),
-('2022-06-03 00:00:00', TRUE, 300, 30, 30, 'notes 03 here', 30, 3, 3, 2);
-
 -- *Dishes* table seeds here:
 INSERT INTO dishes (title, description, price, has_nuts, is_vegan, is_vegetarian, thumbnail_photo, quantity)
 VALUES
@@ -27,6 +20,12 @@ VALUES
 (FALSE, TRUE, FALSE),
 (FALSE, FALSE, TRUE);
 
+-- *Orders* table seeds here:
+INSERT INTO orders (timestamp, is_ready, total_price, taxes, tip, notes, approx_time, dish_id, method_id, user_id)
+VALUES
+('2022-06-01 00:00:00', FALSE, 100, 10, 10, 'notes 01 here', 10, 1, 1, 1),
+('2022-06-02 00:00:00', FALSE, 200, 20, 20, 'notes 02 here', 20, 2, 2, 1),
+('2022-06-03 00:00:00', TRUE, 300, 30, 30, 'notes 03 here', 30, 3, 3, 2);
 
 
 
