@@ -38,6 +38,7 @@ app.use(express.static("public"));
 const ordersRoutes = require("./routes/orders");
 const dishesRoutes = require("./routes/dishes");
 const usersRoutes = require("./routes/users");
+const contactRoutes = require("./routes/contact");
 const widgetsRoutes = require("./routes/widgets");
 const homeRoutes = require("./routes/home");
 
