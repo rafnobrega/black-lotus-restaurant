@@ -15,6 +15,11 @@
 
 <body>
   <h1>This is the contact page!</h1>
+  <div>
+    <% for(let order in orders) { %>
+      <%= orders[order] %>
+    <% } %>
+  </div>
 </body>
 
 </html>
