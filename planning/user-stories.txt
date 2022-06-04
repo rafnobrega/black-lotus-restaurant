@@ -1,0 +1,65 @@
+Option 10: Food Pick-up Ordering
+
+A food ordering experience for a single restaurant. Hungry clients of this fictitious restaurant can visit its website,
+select one or more dishes and place an order for pick-up. They will receive a notification when their order is ready.
+
+The restaurant and client both need to be notified since this app serves as an intermediary.
+
+When an order is placed the restaurant receives the order via SMS. The restaurant can then specify how long it will take to fulfill it.
+Once they provide this information, the website updates for the client and also notifies them via SMS.
+
+You can use a modern telecomm API service such as Twilio to implement SMS communication from the website to the client and restaurant.
+
+For inspiration check out how Ritual works, but keep in mind that's implemented as a native app and serves more than one restaurant.
+
+
+🍕 USER STORIES - MAIN - CLIENT:
+As a user, I want to login and stay logged in for quicker checkouts.
+As a user, I don't want to have to re-type my personal information every time I place a new order, because my information was already provided when I created my user account.
+As a user, I want to see a menu of dishes with the name of the dish, description, price, image, allergies/vegan/vegetarian, quantity to inform my purchase.
+As a user, I want to easily select the dishes I want and add them to my cart effortlessly.
+As a user, I'd like to be able to quickly reorder my last order to save time.
+As a user, I can select one or more dishes and add them to my cart, because I feel empowered having lots of choices.
+As a user, I want to be able to add notes to the order, because sometimes I have special requests/allergies.
+As a user, I want to be able to modify my order editing quantities or deleting items.
+As a user, I'd like to checkout/pay for my order securely and speedily, because my time is important.
+As a user, I want to choose my payment method (cash, credit card, apple pay), because I like to have options.
+As a user, I want to specify the tip percentage that I want to give, because I am kind to my local restaurants.
+As a user, I want to know how long it's going to take for my food to be ready for pick up before I confirm the order, because my time is important to me.
+As a user, I want to be able to see a summary(total and the breakdown) of my order so I'm confident that I'm getting what I ordered.
+As a user, I want to receive a confirmation that the restaurant received my order.
+As a user, I want to know when my order is ready for pick up.
+
+
+👨‍🍳 USER STORIES - MAIN - RESTAURANT:
+As a user, I want to be notified when a new order has been placed.
+As a user, I want to see the oldest orders first.
+As a user, I want to see a summary of my orders.
+As a user, I want to notify the client when their order is ready for pick up.
+
+
+
+USER STORIES - STRETCH:
+-Restaurant business
+-As a user, I want to be able to select the amount of cutlery, condiments, or napkins.
+-Combos
+-See most popular items, maybe put most popular items at the top/in it's own section
+
+USER STORIES - CLIENT-SIDE STRETCH:
+-Check inventory and warn if inventory is low/0
+
+
+A user story describes how users will interact with your application
+They have the form: As a ___, I want to _, because ____.
+eg. As a user, I want to be able to save posts, because I want to review them later.
+User stories can also be negated: As a __, I shouldn't be able to _, because ___.
+eg. As a user, I shouldn't be able to edit other users posts, because I don't own those posts.
+
+
+USER SCENARIOS:
+
+A user scenario is a syntactic alternative to user stories
+They have the form: Given __, when _, then ____.
+eg. Given that I am logged in, when I click favourite on a post, then it is added to my favourites.
+You can also chain on an and to user stories/scenarios
+eg. Given that I am logged in, when I click favourite on a post, then it is added to my favourites and the save icon will change to indicate success.
