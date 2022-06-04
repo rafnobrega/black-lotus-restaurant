@@ -12,9 +12,9 @@ module.exports = (db) => {
   // GET /contact/
   router.get("/", (req, res) => {
     db.query("SELECT * FROM orders;").then((response) => {
-      let templateVars = {
-        orders: response.rows
-      };
+      let orders = response.rows
+      console.log('orders:', orders)
+      let templateVars = { orders };
       res.render('orders', templateVars);
     });
   });
