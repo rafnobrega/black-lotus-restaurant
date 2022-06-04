@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Restaurant Name</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -14,7 +13,17 @@
 </head>
 
 <body>
-  <h1>This is the Login Page</h1>
+  <%-include('partials/_header') %>
+
+  <h3>Login Page</h3>
+  <div class="login-form">
+  <form action="/login" method="POST">
+    <label for="email" >Email:</label>
+    <input type="email" name="email" >
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+    <input type="submit" Value="Login">
+  <div>
 </body>
 
 </html>

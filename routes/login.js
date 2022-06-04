@@ -7,5 +7,11 @@ module.exports = (db) => {
     res.render("login");
   });
 
-  return router;
+ router.post("/login", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+ })
+
+return router;
 };
