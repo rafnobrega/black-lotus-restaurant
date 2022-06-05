@@ -1,0 +1,86 @@
+* {
+  font-family: "Rajdhani", sans-serif;
+}
+
+#welcome-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #c97e06;
+  text-align: center;
+}
+
+#welcome-description {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #633e03;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.banner-pic {
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hours-awards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* max-width: 80vw; */
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.awards {
+  background-color: #48007b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* max-width: 40vh; */
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.work-hours {
+  background-color: #8b013f;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* max-width: 40vh; */
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.work-hours p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.work-hours span {
+  font-weight: bold;
+}
+
+.single-day {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.single-award {
+  margin-left: 10px;
+  margin-right: 10px;
+}

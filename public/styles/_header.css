@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 50px;
+  background-color: #754B06;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.navbar-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  max-width: 100vw;
+
+}
+
+a {
+  text-decoration: none;
+    color: #ffffff;
+
+}
