@@ -36,7 +36,7 @@ module.exports = (db) => {
         return res.redirect('/home')
     }
     res.send({error: "error"});
-        return;
+          return;
    })
  })
 return router;

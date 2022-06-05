@@ -1,0 +1,7 @@
+.error-alert {
+  color: red;
+  box-sizing: border-box;
+  border: solid red;
+  margin-top: 20px;
+  align-items: center;
+}

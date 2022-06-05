@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/public/styles/error-alert.css" type="text/css" />
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -16,7 +18,7 @@
   <%-include('partials/_header') %>
 
   <h3>Login Page</h3>
-  <div class="login-form">
+  <div class="login-form" >
   <form action="/login" method="POST">
     <label for="email" >Email:</label>
     <input type="email" name="email" >
@@ -24,6 +26,7 @@
     <input type="password" name="password">
     <input type="submit" Value="Login">
   <div>
+  <div class="error-alert" display="none">Invalid username or password!</div>
 </body>
 
 </html>
