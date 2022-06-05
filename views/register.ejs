@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Our restaurant</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -13,7 +13,20 @@
 </head>
 
 <body>
-  <h1>Register Page</h1>
+  <%-include('partials/_header') %>
+
+  <h1>Registration Page</h1>
+  <form action="/register" method="POST" class="registration">
+    <label for="email">Email:</label>
+    <input type="email" name="email">
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+    <label for ="name">Name:</label>
+    <input type="name" name="name">
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="phoneNumber" name="phoneNumber">
+    <input type="submit" Value="Register">
+  </form>
 </body>
 
 </html>
