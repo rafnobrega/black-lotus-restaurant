@@ -20,9 +20,11 @@
   </nav>
 
   <h1>Our Menu</h1>
+
+
+  <!-- MENU ITEMS GRID - LOOP -->
   <ul class="menu-items">
     <% for (let obj of menu) { %>
-
       <li class="menu-item">
         <div class="dish-title">
           <%= obj.title %>
@@ -30,55 +32,34 @@
         <div>
           <img class="dish-thumbnail" src="<%= obj.thumbnail_photo %>" />
         </div>
-
         <div class="dish-description">
           <%= obj.description %>
         </div>
-
         <div class="price-and-button-wrp">
           <div class="item-price">
             $<%= Math.floor(obj.price / 100).toFixed(2) %>
           </div class="menu-item-button">
-
-
-
-          <!-- <div class="add-button">
-
-
-            <div class="button-wrapper">
-              <span class="minus">-</span>
-              <span class="num">00</span>
-              <span class="plus">+</span>
-            </div>
-            <script>
-              plus = document.querySelector(".plus"),
-                minus = document.querySelector(".minus"),
-                num = document.querySelector(".num");
-              a = 0;
-              plus.addEventListener("click", () => {
-                a = a + 1;
-                a = (a < 10) ? "0" + a : a;
-                num.innerText = a;
-              });
-
-              minus.addEventListener("click", () => {
-                if (a > 0) {
-                  a--;
-                  a = (a < 10) ? "0" + a : a;
-                  num.innerText = a;
-                }
-              });
-
-            </script>
-          </div> -->
-
-
-
+          <input type="number" id="item-quantity" name="item-quantity" min="0" max="12" value="1">
+          <button type="submit" id="add-to-order">Add to order</button>
         </div>
-
       </li>
       <% } %>
   </ul>
+
+
+<!-- ORDER PLACE (IN THE BOTTOM OF THE PAGE) -->
+  </div>
+  <div class="place-my-order">
+    <p class="place-my-order-subtotal"><span>Subtotal:</span> $1000</p>
+
+    <form method="POST" action="/cart">
+      <button id="place-my-order-button" class="btn btn-primary" type="submit" value="submit">Place my order!</button>
+  </div>
+  </form>
+
+
+
+
 </body>
 
 </html>
