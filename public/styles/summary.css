@@ -1,0 +1,20 @@
+h2 {
+  text-align:  center;
+  background-color: azure;
+  font-size: 40px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: separate;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
