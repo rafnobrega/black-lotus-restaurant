@@ -25,6 +25,7 @@
   <!-- MENU ITEMS GRID - LOOP -->
   <ul class="menu-items">
     <% for (let obj of menu) { %>
+      <!-- EACH ITEM -->
       <li class="menu-item">
         <div class="dish-title">
           <%= obj.title %>
@@ -36,22 +37,23 @@
           <%= obj.description %>
         </div>
         <div class="price-and-button-wrp">
-          <div class="item-price">
+          <!-- ID -->
+
+          <!-- PRICE -->
+          <div class="item-price" id=<%= obj.id %>>
             $<%= Math.floor(obj.price / 100).toFixed(2) %>
+            <!-- QUANTITY -->
           </div class="menu-item-button">
-          <input type="number" id="item-quantity" name="item-quantity" min="0" max="12" value="1">
+          <input type="number" class="item-quantity" id=<%= obj.id %> name="item-quantity" min="0" max="12" value="1">
           <button type="submit" id="add-to-order">Add to order</button>
         </div>
       </li>
       <% } %>
   </ul>
-
-
 <!-- ORDER PLACE (IN THE BOTTOM OF THE PAGE) -->
   </div>
   <div class="place-my-order">
-    <p class="place-my-order-subtotal"><span>Subtotal:</span> $1000</p>
-
+    <p class="place-my-order-subtotal" value="1000"><span>Subtotal:</span>$</p>
     <form method="POST" action="/cart">
       <button id="place-my-order-button" class="btn btn-primary" type="submit" value="submit">Place my order!</button>
   </div>

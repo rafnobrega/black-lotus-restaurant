@@ -76,7 +76,7 @@ h1 {
   border: #ffffff 4px solid;
 }
 
-#item-quantity {
+.item-quantity {
   border-radius: 3px;
   text-align: center;
   margin-right: 5px;
