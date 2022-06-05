@@ -2,26 +2,83 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Menu</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/dishes.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>Menu Page</h1>
-<div>
-<% for (let obj of menu) { %>
-  <p>  <%= obj.title %>   </p>
-  <p> <%= obj.description %></p>
-  <p> <%= obj.thumbnail_photo %> </p>
-<% } %>
-</div>
+  <nav>
+    <%- include('partials/_header.ejs') %>
+  </nav>
+
+  <h1>Our Menu</h1>
+  <ul class="menu-items">
+    <% for (let obj of menu) { %>
+
+      <li class="menu-item">
+        <div class="dish-title">
+          <%= obj.title %>
+        </div>
+        <div>
+          <img class="dish-thumbnail" src="<%= obj.thumbnail_photo %>" />
+        </div>
+
+        <div class="dish-description">
+          <%= obj.description %>
+        </div>
+
+        <div class="price-and-button-wrp">
+          <div class="item-price">
+            $<%= Math.floor(obj.price / 100).toFixed(2) %>
+          </div class="menu-item-button">
+
+
+
+          <!-- <div class="add-button">
+
+
+            <div class="button-wrapper">
+              <span class="minus">-</span>
+              <span class="num">00</span>
+              <span class="plus">+</span>
+            </div>
+            <script>
+              plus = document.querySelector(".plus"),
+                minus = document.querySelector(".minus"),
+                num = document.querySelector(".num");
+              a = 0;
+              plus.addEventListener("click", () => {
+                a = a + 1;
+                a = (a < 10) ? "0" + a : a;
+                num.innerText = a;
+              });
+
+              minus.addEventListener("click", () => {
+                if (a > 0) {
+                  a--;
+                  a = (a < 10) ? "0" + a : a;
+                  num.innerText = a;
+                }
+              });
+
+            </script>
+          </div> -->
+
+
+
+        </div>
+
+      </li>
+      <% } %>
+  </ul>
 </body>
 
 </html>
