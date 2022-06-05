@@ -51,7 +51,7 @@ const contactRoutes = require("./routes/contact");
 const loginRoutes = require("./routes/login");
 const widgetsRoutes = require("./routes/widgets");
 const homeRoutes = require("./routes/home");
-
+const profileRoutes = require("./routes/profile");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/orders", ordersRoutes(db));
@@ -63,6 +63,7 @@ app.use("/contact", contactRoutes(db));
 app.use("/home", homeRoutes(db));
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/profile", profileRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
