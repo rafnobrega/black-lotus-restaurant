@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Restaurant Name - Home</title>
 
-<head>
-  <title>Restaurant Name - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4ea6e3ab0b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <body>
+    <nav><%- include('partials/_header.ejs') %></nav>
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script src="https://kit.fontawesome.com/4ea6e3ab0b.js" crossorigin="anonymous"></script>
-</head>
+    <h1 id="welcome-title">Welcome to Indian Restaurant</h1>
 
-<body>
+    <p id="welcome-description">
+      Experience the best of Indian cuisine at the comfort of your home
+    </p>
 
-  <nav>
-    <%- include('partials/_header.ejs') %>
-  </nav>
+    <div class="banner-background">
+      <img
+        class="banner-pic"
+        src="https://i.ibb.co/KjKZ8Pw/banner-pic.jpg"
+        alt="indian-cuisine-photo"
+      />
+    </div>
 
-  <h1 id="welcome-title">Welcome to Indian Restaurant</h1>
-
-  <p id="welcome-description">
-    Experience the best of Indian cuisine at the comfort of your home</p>
-
-
-  <img class="banner-pic"
-    src="https://i.ibb.co/KjKZ8Pw/banner-pic.jpg" alt="indian-cuisine-photo" />
-
-  <div id="hours-awards">
-  <div class="work-hours">
-    <h3>Hours:</h3>
-    <div class="single-day">
-    <p><span>Monday</span>  - Closed</p>
-    <p><span>Tuesday to Friday</span> - 10am to midnight</p>
-    <p><span>Saturday</span> - 9am to 2am</p>
-    <p><span>Sunday</span> - 9am to midnight</p>
-  </div>
-  </div>
-
-  <div class="awards">
-      <h3>Awards:</h3>
-      <ul>
-        <div class="single-award">
-        <li><i class="fa-solid fa-award"></i> Best Restaurant in the galaxy</li>
-        <li><i class="fa-solid fa-medal"></i> Best Local Restaurant</li>
+    <div id="hours-awards">
+      <div class="work-hours">
+        <h3>Hours:</h3>
+        <div class="single-day">
+          <p><span>Monday</span> - Closed</p>
+          <p><span>Tuesday to Friday</span> - 10am to midnight</p>
+          <p><span>Saturday</span> - 9am to 2am</p>
+          <p><span>Sunday</span> - 9am to midnight</p>
         </div>
-      </ul>
-  </div>
-  </div>
+      </div>
 
-</body>
-
+      <div class="awards">
+        <h3>Awards:</h3>
+        <ul>
+          <div class="single-award">
+            <li>
+              <i class="fa-solid fa-award"></i> Best Restaurant in the galaxy
+            </li>
+            <li><i class="fa-solid fa-medal"></i> Best Local Restaurant</li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
