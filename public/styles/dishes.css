@@ -99,23 +99,36 @@ h1 {
 }
 
 .place-my-order {
-  height: 100px;
-  background-color: black;
+  height: 400px;
+  background-color: rgb(53, 53, 53);
   display: flex;
   justify-content: center;
   align-items: center;
   border-top: #437e00 2px solid;
+  flex-direction: column;
 }
+
+.place-my-order span {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.place-my-order-summary {
+  color: rgb(255, 255, 255);
+  font-size: 1.0rem;
+  margin-bottom: 40px;
+}
+
 
 .place-my-order-subtotal {
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
-  margin-right: 40px;
 }
 
 .place-my-order-subtotal span {
   color: rgb(255, 255, 255);
-  font-size: 1.5rem;
   font-weight: bold;
 }
 

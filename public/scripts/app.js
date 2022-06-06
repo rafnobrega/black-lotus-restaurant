@@ -2,26 +2,50 @@
 
 $(document).ready(function () {
   let counterSubtotal = 0;
+  let dishTitle = "";
+  let quantity = 0;
+  let price = 0;
+  let summary = [];
 
-  $(".add-to-order").on("click", function () {
-    $(".item-price").each(function (index) {
-      const dishPrice = $(`.item-price.${index + 1}`).text().trim();
-      const parsedDishPrice = dishPrice.slice(1);
-      const dishQuantity = $(`.item-quantity.${index + 1}`).val();
-      counterSubtotal += parsedDishPrice * dishQuantity;
-      $(`.item-quantity.${index + 1}`).val(0);
-    });
+  const parseOrder = (summary) => {
+    let string = "";
+    for (const item of summary) {
+      string += `${item.quantity}x ${item.dishTitle} $${item.price} <br>`;
+      console.log(string);
+    }
+    return string;
+  }
+
+  $(".add-to-order").on("click", function (event) {
+    const $parent = $(event.target).parent();
+    price = $parent.find(".item-price").text().trim().slice(1);
+    quantity = Number($parent.find(".item-quantity").val());
+    dishTitle = $parent.parent().find(".dish-title").text().trim();
+
+    counterSubtotal += price * quantity;
+
+    $parent.find(".item-quantity").val(1);
+
+    let itemFound = false; // flag
+    for (const obj of summary) {
+      if (obj.dishTitle === dishTitle) {
+        itemFound = true;
+        obj.quantity += quantity;
+      }
+    }
+    if (!itemFound) {
+      summary.push({quantity, dishTitle, price});
+    }
+
+
+    $(".place-my-order-summary").html(`${parseOrder(summary)}`);
     $(".place-my-order-subtotal").text(`$ ${counterSubtotal}`);
-
-    // const dishId = $(this).attr("class").split(" ")[1];
-    // console.log("dishId:", dishId);
   });
+
+  $("#place-my-order-button").on("click", function (event) {
+  const setMenuCookie = function () {
+    Cookies.set("menu order", JSON.stringify(summary));
+  };
+  setMenuCookie();
 });
-
-$(function () {
-  $("#item-quantity").change(function () {
-    $(".place-my-order-subtotal").val(
-      parseInt($(this).val()) * parseInt($("#obj.id").val())
-    );
-  });
 });
