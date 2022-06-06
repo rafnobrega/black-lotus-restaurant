@@ -11,7 +11,7 @@ $(document).ready(function () {
     let string = "";
     for (const item of summary) {
       string += `${item.quantity}x ${item.dishTitle} $${item.price} <br>`;
-      console.log(string);
+      // console.log(string);
     }
     return string;
   }
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
 
     $(".place-my-order-summary").html(`${parseOrder(summary)}`);
-    $(".place-my-order-subtotal").text(`$ ${counterSubtotal}`);
+    $(".place-my-order-subtotal").text(`$ ${counterSubtotal.toFixed(2)}`);
   });
 
   $("#place-my-order-button").on("click", function (event) {
