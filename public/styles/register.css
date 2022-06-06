@@ -5,7 +5,7 @@ body {
     font-family: 'Rajdhani', sans-serif;
 }
 
-.login-wrapper {
+.register-wrapper {
   margin-right: auto;
   margin-left: auto;
   margin-top: 100px;
@@ -21,32 +21,50 @@ body {
   box-shadow: rgb(30, 30, 30) 5px 5px 5px;
 }
 
-.login-wrapper h3 {
+.register-wrapper h3 {
   align-items: center;
+  color: rgb(0, 0, 0);
 }
 
-.login-wrapper input {
+.register-wrapper input {
   border-radius: 5px;
   border: 1px white;
 }
 
-.login-email {
+.register-email {
   align-items: center;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+
 }
 
-.login-password {
+.register-name {
   align-items: center;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.login-button {
+.register-password {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.register-phone {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.register-button {
   align-items: center;
   display: flex;
   justify-content: center;
