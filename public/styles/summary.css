@@ -13,32 +13,24 @@ h2 {
   grid-gap: 0px;
   background: #c97e06;
   border-radius: 5px;
-  margin-left: 85px;
-  margin-right: 85px;
+  margin-left: 170px;
+  margin-right: 170px;
 }
 .items {
   padding: 2px;
   font-size: 21px;
-  margin-right:30px
+  margin-right:150px
 }
 .prices {
   padding: 2px;
   font-size: 21px;
-  margin-left: 15px;
+  margin-right: 35px;
 }
-.total-prices {
+.amount {
   padding: 2px;
   font-size: 21px;
 }
-.notes{
-  padding: 2px;
-  font-size: 21px;
-  margin-right: 5px;
-}
-.taxes {
-  padding: 2px;
-  font-size: 21px;
-}
+
 .tips {
   padding: 2px;
   font-size: 21px;
@@ -46,6 +38,7 @@ h2 {
 .quantity {
   padding: 2px;
   font-size: 21px;
+  margin-right: 40px;
 }
 hr {
   border: solid 1px inset;
@@ -55,6 +48,14 @@ hr {
   margin-right: 100px;
   margin-left: 100px;
   visibility: hidden;
+}
+.table .total {
+  border: solid 1px inset;
+  color: red;
+  display: block;
+  margin: 0.6em auto;
+  margin-right: 100px;
+  margin-left: 00px;
 }
 .welcome-wrapper{
   display: flex;
