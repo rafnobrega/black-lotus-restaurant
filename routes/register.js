@@ -35,6 +35,7 @@ module.exports = (db) => {
          }
        }
 
+
       db.query(`INSERT INTO users
       (name, email, password, phone)
       VALUES ($1, $2, $3, $4);`,
