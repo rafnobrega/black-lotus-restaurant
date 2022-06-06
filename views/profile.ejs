@@ -53,7 +53,7 @@
       <p>
         <% for(let user of users) { %>
           <hr>
-          $ &nbsp; <%= Math.floor(user.price / 100).toFixed(2) %>
+          $ &nbsp; <%= Math.floor(user.price).toFixed(2) %>
             <% } %>
             <hr class = "total">
     </div>
@@ -74,13 +74,13 @@
       <p>
         <% for(let user of users) { %>
           <hr>
-          $ &nbsp;<%= Math.floor(user.amount / 100).toFixed(2) %>
+          $ &nbsp;<%= Math.floor(user.amount).toFixed(2) %>
             <% } %>
             <hr class = "total">
             <p>$ &nbsp;<%= Math.floor(sum).toFixed(2) %>
             </p>
             </p>
-            <p>$ &nbsp;<%= Math.floor(countTax / 100).toFixed(2) %></p>
+            <p>$ &nbsp;<%= Math.floor(countTax).toFixed(2) %></p>
             $ &nbsp;<%= Math.floor(users[0].tip).toFixed(2) %>
             <p>$ &nbsp;<b><%= Math.floor(totalAmount).toFixed(2)%></p></b>
             <div class="notes"> <%= users[0].notes %>I am vegan please be careful with my order  </div>

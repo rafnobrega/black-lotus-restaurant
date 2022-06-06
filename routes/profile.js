@@ -16,7 +16,7 @@ module.exports = (db) => {
     ON orders.id = order_id
     JOIN users
     ON users.id = user_id
-    WHERE orders.user_id = $1;
+    WHERE users.id = $1;
     `,[1]).then ((response) => {
       let users = response.rows // rename to order
       let sum = 0; 
