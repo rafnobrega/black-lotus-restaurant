@@ -78,12 +78,12 @@
           $ &nbsp;<%= Math.floor(user.amount / 100).toFixed(2) %>
             <% } %>
             <hr class = "total">
-            <p>$ &nbsp;<%= Math.floor(sum).toFixed(2) %>
+            <p>$ &nbsp;<%= Math.floor(sum / 100).toFixed(2) %>
             </p>
             </p>
             <p>$ &nbsp;<%= Math.floor(countTax / 100).toFixed(2) %></p>
-            $ &nbsp;<%= Math.floor(users[0].tip).toFixed(2) %>
-            <p>$ &nbsp;<b><%= Math.floor(totalAmount).toFixed(2)%></p></b>
+            $ &nbsp;<%= Math.floor(users[0].tip /100).toFixed(2) %>
+            <p>$ &nbsp;<b><%= Math.floor(totalAmount / 100).toFixed(2)%></p></b>
             <div class="notes"> <%= users[0].notes %>I am vegan please be careful with my order  </div>
             <hr><hr>
     </div>
