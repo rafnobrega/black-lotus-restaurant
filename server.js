@@ -48,12 +48,21 @@ const dishesRoutes = require("./routes/dishes");
 const usersRoutes = require("./routes/users");
 const contactRoutes = require("./routes/contact");
 const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 const widgetsRoutes = require("./routes/widgets");
 const homeRoutes = require("./routes/home");
 const profileRoutes = require("./routes/profile");
+const adminRoutes = require("./routes/admin");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+<<<<<<< HEAD
+=======
+app.use("/orders", ordersRoutes(db));
+app.use("/admin", adminRoutes(db));
+>>>>>>> approxtime2
 app.use("/login", loginRoutes(db));
+app.use("/logout", loginRoutes(db));
 app.use("/cart", cartRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/menu", dishesRoutes(db));

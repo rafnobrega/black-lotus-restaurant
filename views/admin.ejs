@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+=======
+  <title>Admin Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
+
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+>>>>>>> approxtime2
 </head>
+
 <body>
-  <h1> This is a admin page</h1>
+  <%-include('partials/_header') %>
+
+<header class="Admin-header">Orders: </header>
+
+<article class="posted-order">
+<header class="order-timestamp"> Time Created: <%= orders[0].timestamp %> </header>
+<header>
+  <div class="header-number"> Order Number: <%= orders[0].id %>
+  <div>Status: <%= orders[0].status %> </div></div>
+</header>
+
+<div class="order-summary">
+<div>Customer Name: <%= orders[0].name %> </div>
+<div> Customer Notes: <%= orders[0].notes %> </div>
+<div> </div>
+
+</div>
+
+<div class="list-items">Order items:
+<li>
+<%= orders[0].title %>
+</li>
+</div>
+
+<footer class="total-price">Total price to be paid:
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
 </body>
+<<<<<<< HEAD
 </html>
+=======
+
+
+</html>
+
+>>>>>>> approxtime2
