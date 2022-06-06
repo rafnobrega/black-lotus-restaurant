@@ -5,8 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/styles/summary.css" type="text/css" />
+  <title>Profile</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
+  <link rel="stylesheet" href="/public/styles/error-alert.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
 </head>
 
 <body>
@@ -15,28 +24,30 @@
   </nav>
   <div class="welcome-wrapper">
     <div class="welcome-user">
-      <p>Welcome <%= users[0].name %>
+      <p>Welcome, <%= users[0].name %>!
       </p>
     </div>
     <div class="welcome-order">
-      <p>order number <%= users[0].order_id %>
+      <p>Order number: <%= users[0].order_id %>
       </p>
     </div>
   </div>
-  <h2>Order summary</h2>
+  <h2 class="summary-title">Order summary:</h2>
   <!-- user order summary table -->
   <div class="table">
     <div class="items">
-      <p>Name of the dishes</p>
+      <p>Item:</p>
       <p>
         <% for(let user of users) { %>
           <hr>
           <%= user.title %>
             <% } %>
-      </p>
+      <hr class="total"><p>Subtotal:</p></p>
+      <p>Taxes:</p>
+      <p><b>Total:</b></p>
     </div>
     <div class="prices">
-      <p>Prices</p>
+      <p>Price:</p>
       <p>
         <% for(let user of users) { %>
           <hr>
@@ -44,12 +55,26 @@
             <% } %>
     </div>
     <div class="quantity">
-      <p>quantity</p>
+      <p>Quantity:</p>
       <p>
         <% for(let user of users) { %>
           <hr>
           <%= user.quantity %>
             <% } %>
+    </div>
+    <div class="amount">
+      <p>Total Price:</p>
+      <p>
+        <% for(let user of users) { %>
+          <hr>
+          <%= user.amount %>
+            <% } %>
+            <hr class="total">
+            <p>5000
+            </p>
+            </p>
+
+
     </div>
   </div>
 </body>

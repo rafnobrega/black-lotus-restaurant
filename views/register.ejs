@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>Our restaurant</title>
+  <title>Register</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/register.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -14,19 +15,31 @@
 
 <body>
   <%-include('partials/_header') %>
+    <div class="register-wrapper">
+      <h3>Register:</h3>
+      <div class="register-email">
+        <form action="/register" method="POST" class="registration">
+          <label for="email">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="email" name="email">
+      </div>
+      <div class="register-password">
+        <label for="password">Password:&nbsp;</label>
+        <input type="password" name="password">
+      </div>
+      <div class="register-name">
+        <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="name" name="name">
+      </div>
+      <div class="register-phone">
+        <label for="phoneNumber">Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="phoneNumber" name="phoneNumber">
+      </div>
+      <div class="register-button">
+        <input type="submit" Value="Submit">
+      </div>
+      </form>
+    </div>
 
-  <h1>Registration Page</h1>
-  <form action="/register" method="POST" class="registration">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-    <label for ="name">Name:</label>
-    <input type="name" name="name">
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="phoneNumber" name="phoneNumber">
-    <input type="submit" Value="Register">
-  </form>
 </body>
 
 </html>
