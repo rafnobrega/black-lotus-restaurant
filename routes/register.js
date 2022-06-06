@@ -24,12 +24,11 @@ module.exports = (db) => {
     db.query(`SELECT *
     FROM users;`).then((result => {
 
-      console.log('result.rows: ', result.rows)
 
       let userArray = result.rows;
 
       for (let i = 0; i < userArray.length; i++) {
-      console.log('emails:', userArray[i].email)
+      // console.log('emails:', userArray[i].email)
       if (newUserEmail === userArray[i].email || newUserPassword === userArray[i].password || newUserNumber === userArray[i].phone) {
        return res.status(401).send("Error, something's already in use!");
          }
@@ -38,8 +37,16 @@ module.exports = (db) => {
 
       db.query(`INSERT INTO users
       (name, email, password, phone)
-      VALUES ($1, $2, $3, $4);`,
-      [newUserName, newUserEmail, newUserPassword, newUserNumber])
+      VALUES ($1, $2, $3, $4)
+      RETURNING users.id;`,
+      [newUserName, newUserEmail, newUserPassword, newUserNumber]).then((result => {
+        console.log(result)
+        let loginId = result.rows[0].id
+        console.log('loginId: ',loginId)
+        req.session.userId = loginId
+        res.redirect('/home')
+
+      }))
 
     }));
 

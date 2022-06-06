@@ -2,11 +2,18 @@
 const express = require('express')
 const router = express.Router()
 const cookieSession = require('cookie-session');
+
+
+
 module.exports = (db) => {
-  // GET /logout/
   router.get("/", (req, res) => {
-    req.session = null;
-    res.redirect('/home')
-  });
+      db.query(`SELECT *
+      FROM users;`).then((result => {
+        req.session = null
+        res.end()
+        res.redirect("/home");
+      }))
+
+    });
   return router;
 }

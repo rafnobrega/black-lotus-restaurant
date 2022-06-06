@@ -1,0 +1,49 @@
+body {
+  background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png");
+  background-color: rgb(0, 0, 0);
+  max-width: 100vw;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.Admin-header {
+  color:white;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.posted-order {
+  background-color:white;
+  border: solid red;
+  margin: 50px;
+  height: 400px;
+
+}
+
+.header-number {
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.order-summary {
+  height: 100px;
+  margin: 10px;
+  background-color: lightsalmon;
+}
+
+.list-items {
+  margin-left: 10px;
+  padding: 10p;
+  margin-top: 30px;
+}
+
+.order-timestamp {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.total-price {
+  margin-top: 100px;
+}
