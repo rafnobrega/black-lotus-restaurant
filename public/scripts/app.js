@@ -1,29 +1,21 @@
 // Client facing scripts here
 
-$(document).ready(function() {
-  $("#add-to-order").on("click", function() {
-    console.log("add to order CLICK ====");
-  })
+$(document).ready(function () {
+  let counterSubtotal = 0;
 
-  $(".item-price").each(function (index) {
-    console.log("INDEX:", index + "\n  PRICE:" + $(this).text());
+  $(".add-to-order").on("click", function () {
+    $(".item-price").each(function (index) {
+      const dishPrice = $(`.item-price.${index + 1}`).text().trim();
+      const parsedDishPrice = dishPrice.slice(1);
+      const dishQuantity = $(`.item-quantity.${index + 1}`).val();
+      counterSubtotal += parsedDishPrice * dishQuantity;
+      $(`.item-quantity.${index + 1}`).val(0);
+    });
+    $(".place-my-order-subtotal").text(`$ ${counterSubtotal}`);
+
+    // const dishId = $(this).attr("class").split(" ")[1];
+    // console.log("dishId:", dishId);
   });
-
-  // $(".item-quantity").val()(function (quantity) {
-  //   console.log("QUANTITY: ", quantity + $(this).text());
-  // });
-
-
-$(".item-quantity")
-let id = $(this).attr(".item-quantity")
-  .keyup(function() {
-    var value = $( this ).val();
-    $("RAF WAS HERE", id).text( value );
-  })
-  .keyup();
-
-
-
 });
 
 $(function () {
@@ -33,18 +25,3 @@ $(function () {
     );
   });
 });
-
-
-
-// $document.ready(function () {
-//  $
-// });
-
-// calculate the subtotal of my order
-// iterate over each menu item
-  // calculate price vs quantity
-// sum the iterations
-
-
-// how we access the values of each menu item
-
