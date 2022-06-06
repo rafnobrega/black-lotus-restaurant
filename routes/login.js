@@ -3,11 +3,6 @@ const router  = express.Router();
 const cookieSession = require('cookie-session');
 
 
-
-
-
-
-
 module.exports = (db) => {
   // GET /login/
   router.get("/", (req, res) => {
@@ -19,24 +14,27 @@ module.exports = (db) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  db.query(`SELECT email, password, users.id
-  FROM users
-  WHERE email = $1
-  AND password = $2;`, [email, password])
+  db.query(`SELECT *
+  FROM users;`)
   .then(data => {
-
     let loginData = data.rows
-    let loginEmail = loginData[0].email
-    let loginPassword = loginData[0].password
-    let loginId = loginData[0].id
+    console.log('data.rows: ', data.rows)
 
 
-    if (loginEmail === email && loginPassword === password) {
+    for (let i = 0; i < loginData.length; i++) {
+      if (email === loginData[i].email && password === loginData[i].password) {
+        let loginId = loginData[i].id
+        console.log('loginID: ', loginId)
         req.session.userId = loginId;
         return res.redirect('/home')
+      }
+
     }
+
     res.send({error: "error"});
-          return;
+    return;
+
+
    })
  })
 return router;
