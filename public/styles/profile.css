@@ -46,7 +46,8 @@ body {
 .quantity {
   padding: 2px;
   color: white;
-  margin-right: 4px;
+  margin-right: 4px; 
+  
 }
 hr {
   border: solid 1px inset;
