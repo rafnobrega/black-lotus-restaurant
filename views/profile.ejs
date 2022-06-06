@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
-  <link rel="stylesheet" href="/public/styles/error-alert.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -28,7 +27,8 @@
       </p>
     </div>
     <div class="welcome-order">
-      <p>Order number: <%= users[0].order_id %>
+      <p>Order number: <%= users[0].order_id %><br>
+        Order-status: <b><%= users[0].status %></b>
       </p>
     </div>
   </div>
@@ -42,18 +42,22 @@
           <hr>
           <%= user.title %>
             <% } %>
-      <hr class="total"><p>Subtotal:</p></p>
+      <hr><p>Subtotal:</p></p>
       <p>Taxes:</p>
+      <p>Tips</p>
       <p><b>Total:</b></p>
+      <p>Spicial instructions:-</p>
     </div>
     <div class="prices">
       <p>Price:</p>
       <p>
         <% for(let user of users) { %>
           <hr>
-          <%= user.price %>
+          $ &nbsp; <%= Math.floor(user.price / 100).toFixed(2) %>
             <% } %>
+            <hr class = "total">
     </div>
+    
     <div class="quantity">
       <p>Quantity:</p>
       <p>
@@ -61,22 +65,29 @@
           <hr>
           <%= user.quantity %>
             <% } %>
+            <hr class = "total">
+           
+           
     </div>
     <div class="amount">
       <p>Total Price:</p>
       <p>
         <% for(let user of users) { %>
           <hr>
-          <%= user.amount %>
+          $ &nbsp;<%= Math.floor(user.amount / 100).toFixed(2) %>
             <% } %>
-            <hr class="total">
-            <p>5000
+            <hr class = "total">
+            <p>$ &nbsp;<%= Math.floor(sum).toFixed(2) %>
             </p>
             </p>
-
-
+            <p>$ &nbsp;<%= Math.floor(countTax / 100).toFixed(2) %></p>
+            $ &nbsp;<%= Math.floor(users[0].tip).toFixed(2) %>
+            <p>$ &nbsp;<b><%= Math.floor(totalAmount).toFixed(2)%></p></b>
+            <div class="notes"> <%= users[0].notes %>I am vegan please be careful with my order  </div>
+            <hr><hr>
     </div>
   </div>
+  
 </body>
 
 </html>

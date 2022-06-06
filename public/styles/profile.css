@@ -19,14 +19,15 @@ body {
   grid-gap: 0px;
   background-color: black;
   border-radius: 5px;
-  margin-left: 170px;
-  margin-right: 170px;
-
+  margin-left: 200px;
+  margin-right: 220px;
+  
 }
 .items {
   padding: 2px;
   color: white;
   margin-right: 150px;
+  margin-left: 60px;
 }
 .prices {
   padding: 2px;
@@ -45,24 +46,15 @@ body {
 .quantity {
   padding: 2px;
   color: white;
-  margin-right: 40px;
+  margin-right: 4px;
 }
 hr {
   border: solid 1px inset;
-  color: red;
   display: block;
   margin: 0.6em auto;
   margin-right: 100px;
   margin-left: 100px;
   visibility: hidden;
-}
-.table .total {
-  border: solid 1px inset;
-  color: red;
-  display: block;
-  margin: 0.6em auto;
-  margin-right: 100px;
-  margin-left: 00px;
 }
 .welcome-wrapper {
   display: flex;
@@ -72,3 +64,18 @@ hr {
   margin-left: 30px;
   margin-right: 30px;
 }
+.total {
+  visibility: visible;
+  margin-top: 10px;
+  margin-right: 65px;
+  margin-left: -408px;
+}
+div.notes{
+  width: 280px; /* Need the width for this to work */
+  overflow: hidden;
+  margin-left: -140px;
+  word-break: break-all;
+  word-break: break-word;
+}
+  
+
