@@ -56,11 +56,7 @@ const adminRoutes = require("./routes/admin");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-<<<<<<< HEAD
-=======
-app.use("/orders", ordersRoutes(db));
 app.use("/admin", adminRoutes(db));
->>>>>>> approxtime2
 app.use("/login", loginRoutes(db));
 app.use("/logout", loginRoutes(db));
 app.use("/cart", cartRoutes(db));
