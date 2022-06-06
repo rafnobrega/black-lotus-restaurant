@@ -2,19 +2,63 @@ h2 {
   text-align:  center;
   background-color: azure;
   font-size: 40px;
+  height: 55px;
+  margin-top: 30px;
+  padding-top: 5px;
+  border-radius: 10px;
 }
-table {
-  font-family: arial, sans-serif;
-  border-collapse: separate;
-  width: 100%;
+.table {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 0px;
+  background: #c97e06;
+  border-radius: 5px;
+  margin-left: 85px;
+  margin-right: 85px;
 }
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.items {
+  padding: 2px;
+  font-size: 21px;
+  margin-right:30px
 }
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+.prices {
+  padding: 2px;
+  font-size: 21px;
+  margin-left: 15px;
+}
+.total-prices {
+  padding: 2px;
+  font-size: 21px;
+}
+.notes{
+  padding: 2px;
+  font-size: 21px;
+  margin-right: 5px;
+}
+.taxes {
+  padding: 2px;
+  font-size: 21px;
+}
+.tips {
+  padding: 2px;
+  font-size: 21px;
+}
+.quantity {
+  padding: 2px;
+  font-size: 21px;
+}
+hr {
+  border: solid 1px inset;
+  color: red;
+  display: block;
+  margin: 0.6em auto;
+  margin-right: 100px;
+  margin-left: 100px;
+  visibility: hidden;
+}
+.welcome-wrapper{
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  margin-bottom: -35px;
 }
