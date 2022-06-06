@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>Restaurant Name</title>
+  <title>Login</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
   <link rel="stylesheet" href="/public/styles/error-alert.css" type="text/css" />
 
 
@@ -15,18 +16,30 @@
 </head>
 
 <body>
-  <%-include('partials/_header') %>
-
-  <h3>Login Page</h3>
-  <div class="login-form" >
-  <form action="/login" method="POST">
-    <label for="email" >Email:</label>
-    <input type="email" name="email" >
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-    <input type="submit" Value="Login">
   <div>
-  <div class="error-alert" display="none">Invalid username or password!</div>
+    <%-include('partials/_header') %>
+      <div class="login-wrapper">
+        <h3>Login:</h3>
+        <div class="login-form">
+          <form action="/login" method="POST">
+            <div class="login-email">
+              <label for="email">Email:</label>
+              <input type="email" name="email">
+            </div>
+            <div class="login-password">
+              <label for="password">Password:&nbsp;&nbsp;</label>
+              <input type="password" name="password">
+            </div>
+            <div class="login-button">
+            <input  type="submit" Value="Login">
+          </div>
+          </form>
+        </div>
+      </div>
+  </div>
 </body>
+<!-- <div>
+<div class="error-alert" display="none">Invalid username or password!</div> -->
 
 </html>
+
