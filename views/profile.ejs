@@ -33,7 +33,9 @@
           <hr>
           <%= user.title %>
             <% } %>
-      </p>
+      <hr class="total"><p>Subtotal</p></p>
+      <p>Tax</p>
+      <p><b>Total</b></p>
     </div>
     <div class="prices">
       <p>Prices</p>
@@ -50,6 +52,20 @@
           <hr>
           <%= user.quantity %>
             <% } %>
+    </div>
+    <div class="amount">
+      <p>Total price</p>
+      <p>
+        <% for(let user of users) { %>
+          <hr>
+          <%= user.amount %>
+            <% } %>
+            <hr class="total">
+            <p>5000
+            </p>
+            </p>
+            
+
     </div>
   </div>
 </body>
