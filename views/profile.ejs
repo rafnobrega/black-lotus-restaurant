@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,50 @@
   <title>Document</title>
   <link rel="stylesheet" href="/styles/summary.css" type="text/css" />
 </head>
+
 <body>
   <nav>
     <%- include('partials/_header.ejs') %>
   </nav>
-  <h1>Welcome user</h1>
-  <h2>Order summary</h2>
-  <div>
-    <table>
-      <tr>
-      <th>Name of the dishes</th>
-      <th>Prices</th>
-      <th>Prices after taxes</th>
-    </tr>
-    <% for(let user of users) { %>
-      <tr><td><%= user.title %></td></tr>
-      <tr><td><%= user.total_price %></td></tr>
-    <% } %>
-
-</table>
+  <div class="welcome-wrapper">
+    <div class="welcome-user">
+      <p>Welcome <%= users[0].name %>
+      </p>
+    </div>
+    <div class="welcome-order">
+      <p>order number <%= users[0].order_id %>
+      </p>
+    </div>
   </div>
-
-
-
+  <h2>Order summary</h2>
+  <!-- user order summary table -->
+  <div class="table">
+    <div class="items">
+      <p>Name of the dishes</p>
+      <p>
+        <% for(let user of users) { %>
+          <hr>
+          <%= user.title %>
+            <% } %>
+      </p>
+    </div>
+    <div class="prices">
+      <p>Prices</p>
+      <p>
+        <% for(let user of users) { %>
+          <hr>
+          <%= user.price %>
+            <% } %>
+    </div>
+    <div class="quantity">
+      <p>quantity</p>
+      <p>
+        <% for(let user of users) { %>
+          <hr>
+          <%= user.quantity %>
+            <% } %>
+    </div>
+  </div>
 </body>
+
 </html>
