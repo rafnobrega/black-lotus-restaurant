@@ -12,6 +12,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 
 <body>
@@ -28,23 +29,26 @@
 
       <!-- EACH ITEM -->
       <li class="menu-item">
+        <!-- TITLE -->
         <div class="dish-title">
           <%= obj.title %>
         </div>
         <div>
+          <!-- PICTURE -->
           <img class="dish-thumbnail" src="<%= obj.thumbnail_photo %>" />
         </div>
+        <!-- DESCRIPTION -->
         <div class="dish-description">
           <%= obj.description %>
         </div>
         <div class="price-and-button-wrp">
           <!-- PRICE -->
-          <div class="item-price <%= obj.id %>">
+          <div class="item-price">
             $<%= Math.floor(obj.price / 100).toFixed(2) %>
             <!-- QUANTITY -->
           </div class="menu-item-button">
-          <input type="number" class="item-quantity <%= obj.id %>" name="item-quantity" min="0" max="12" value="0">
-          <button type="submit" class="add-to-order <%= obj.id %>" >Add to order</button>
+          <input type="number" class="item-quantity" name="item-quantity" min="0" max="12" value="1">
+          <button type="submit" class="add-to-order" >Add to order</button>
         </div>
       </li>
       <% } %>
@@ -52,8 +56,12 @@
 <!-- PLACE ORDER (IN THE BOTTOM OF THE PAGE) -->
   </div>
   <div class="place-my-order">
+    <span>Items:</span>
+    <div class="place-my-order-summary">
+    <p class="place-my-order-summary"></p>
+    </div>
     <span>Subtotal:</span>
-    <p class="place-my-order-subtotal" value="1000">$</p>
+    <p class="place-my-order-subtotal">$</p>
     <form method="POST" action="/cart">
       <button id="place-my-order-button" class="btn btn-primary" type="submit" value="submit">Review my order</button>
   </div>
