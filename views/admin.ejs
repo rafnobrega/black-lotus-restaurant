@@ -2,13 +2,11 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-=======
   <title>Admin Page</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -19,7 +17,6 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
->>>>>>> approxtime2
 </head>
 
 <body>
@@ -42,9 +39,12 @@
 </div>
 
 <div class="list-items">Order items:
-<li>
-<%= orders[0].title %>
+  <% for (i=0; i < orders.length; i++) { %>
+  <li>
+<%= orders[i].title %>
+
 </li>
+<% } %>
 </div>
 
 <footer class="total-price">Total price to be paid:
@@ -66,11 +66,8 @@
 
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
 
 
 </html>
 
->>>>>>> approxtime2

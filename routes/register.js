@@ -40,9 +40,7 @@ module.exports = (db) => {
       VALUES ($1, $2, $3, $4)
       RETURNING users.id;`,
       [newUserName, newUserEmail, newUserPassword, newUserNumber]).then((result => {
-        console.log(result)
         let loginId = result.rows[0].id
-        console.log('loginId: ',loginId)
         req.session.userId = loginId
         res.redirect('/home')
 
