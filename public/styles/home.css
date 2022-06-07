@@ -51,7 +51,7 @@ body {
 .button-container a {
   height: 40px;
   bottom: 6rem;
-
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
