@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/cart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 
@@ -29,23 +29,26 @@
         <span>Subtotal:</span>
         <p class="pay-order-subtotal"></p>
       </div>
-      <form method="POST" action="">
-        <button id="pay-order-button" class="btn btn-primary" type="submit" value="submit">Pay</button>
-      </form>
+      <div class="cart-buttons">
+        <button id="review-order-button"  href="/menu" class="btn btn-primary" type="submit" value="submit">Review Order</button>
+        <form method="POST" action="">
+          <button id="pay-order-button" class="btn btn-primary" type="submit" value="submit">Pay my Order</button>
+        </form>
+      </div>
     </div>
 
-<script>
-let mySummary = JSON.parse(window.localStorage.getItem("summary"));
-let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal"));
+    <script>
+      let mySummary = JSON.parse(window.localStorage.getItem("summary"));
+      let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal"));
 
-for (let item of mySummary) {
-  let returnValue = `<p class="pay-order-summary-item">
+      for (let item of mySummary) {
+        let returnValue = `<p class="pay-order-summary-item">
 ${item.quantity}x ${item.dishTitle} $${item.price} <br>
 </p>`
-$("#pay-o-summary").append(returnValue);
-};
-$(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
-</script>
+        $("#pay-o-summary").append(returnValue);
+      };
+      $(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
+    </script>
 </body>
 
 </html>

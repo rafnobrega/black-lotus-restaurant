@@ -42,6 +42,7 @@ a {
   text-decoration: none;
     color: #ffffff;
     margin-left: 20px;
+      transition: 400ms;
 }
 a:hover {
   text-decoration: none;

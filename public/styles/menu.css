@@ -161,6 +161,7 @@ h1 {
   font-weight: bold;
   margin-right: 15px;
   width: 100px;
+  transition: 300ms;
 }
 
 #erase-my-order-button:hover {
@@ -178,6 +179,7 @@ h1 {
   font-weight: bold;
   margin-left: 15px;
    width: 100px;
+   transition: 300ms;
 }
 
 #place-my-order-button:hover {
