@@ -10,7 +10,6 @@ module.exports = (db) => {
     ON orders.user_id = users.id
     ORDER BY orders.timestamp;`).then((response) => {
       let orders = response.rows
-      console.log('orders:', orders)
       if (req.query.json) {
         res.json(orders)
       }
