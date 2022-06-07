@@ -10,12 +10,9 @@ module.exports = (db) => {
     ON orders.user_id = users.id
     ORDER BY orders.timestamp;`).then((response) => {
       let orders = response.rows
-<<<<<<< HEAD
-=======
       let templateVars = {userId : req.session.userId}
     console.log('This is the user id from admin',req.session.userId);
       console.log('orders:', orders)
->>>>>>> nav-style
       if (req.query.json) {
         res.json(orders)
       }

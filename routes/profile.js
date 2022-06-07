@@ -21,10 +21,7 @@ module.exports = (db) => {
     const userId = [req.session.userId]
     db.query(sqlquery,userId).then ((response) => {
       let users = response.rows // rename to order
-<<<<<<< HEAD
-=======
       // console.log(users);
->>>>>>> nav-style
       let sum = 0;
       users.forEach(element => {
         // console.log("element",element.amount);
@@ -36,13 +33,8 @@ module.exports = (db) => {
       let countTax = sum * (13/100);
       console.log('this is my tip',users[0].tip)
       let totalAmount = countTax + sum + users[0].tip;
-<<<<<<< HEAD
-      let templateVars = {users,sum,countTax,totalAmount};
-
-=======
       let templateVars = {users,sum,countTax,totalAmount,userId};
-      
->>>>>>> nav-style
+
       res.render('profile',templateVars);
     });
 });
