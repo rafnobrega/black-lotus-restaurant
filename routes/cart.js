@@ -6,7 +6,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     res.render("cart");
   });
-
   return router;
 };
+
 

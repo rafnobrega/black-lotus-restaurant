@@ -11,12 +11,29 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 
 <body>
-      <%-include('partials/_header') %>
-  <h1>Cart Page</h1>
+  <%-include('partials/_header') %>
+    <h1>Cart:</h1>
+
+    </div>
+    <div class="pay-order">
+      <span>Items:</span>
+      <div class="pay-order-summary">
+        <p class="pay-order-summary-item">testttt</p>
+      </div>
+      <div class="subtotal-wrapper">
+        <span>Subtotal:</span>
+        <p class="pay-order-subtotal">$</p>
+      </div>
+      <form method="POST" action="">
+        <button id="pay-order-button" class="btn btn-primary" type="submit" value="submit">Pay</button>
+      </form>
+    </div>
+
+
 </body>
 
 </html>
