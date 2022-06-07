@@ -57,6 +57,7 @@ const adminRoutes = require("./routes/admin");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/login", loginRoutes(db));
+app.use("/admin", adminRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/cart", cartRoutes(db));
 app.use("/register", registerRoutes(db));

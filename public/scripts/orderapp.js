@@ -1,35 +1,44 @@
-const loadOrders = function() {
-  $.get('/admin')
-    .then((orderData) => {
-      renderOrders(orderData);
-    });
-};
 
 $(document).ready(() => {
+  const loadOrders = function() {
+    $.get('/admin?json=1')
+      .then((orderData) => {
+        renderOrders(orderData);
+      });
+  };
 
   const renderOrders = function(orders) {
     for (let order of orders) {
-      let returnValue = createTweetElement(order);
-      $('#tweets-container').prepend(returnValue);
+
+      let returnValue = createOrderElement(order);
+      $('#order-container').append(returnValue);
     }
   };
+  loadOrders()
 });
 
 
-const createOrderElement = function(tweet) {
+const createOrderElement = function(order) {
 
 
-  const $tweet = $(`<article class="posted-tweet">
-                      <header class="tweet-header">
-                          <div class="name"><img src="${tweet.user.avatars}">${tweet.user.name} </div>
-                          <div class="handle">${tweet.user.handle}</div>
-                      </header>
-                      <p class="text"> ${escape(tweet.content.text)}</p>
-                      <footer class="tweet-footer">
-                          <div class="time-created">${timeago.format(tweet.created_at)}</div>
-                          <div> <i class="fa-solid fa-flag flag"></i> <i class="fa-solid fa-retweet retweet"></i> <i class="fa-solid fa-heart heart"></i> </div>
-                      </footer>
-                    </article>`);
+  const $order = $(`
+  <article class="posted-order">
+  <header class="order-timestamp"> Time Created: ${order.timestamp} %>
+   </header>
 
-  return $tweet;
+   <header>
+    <div class="header-number"> Order Number: ${order.id}
+    <div>Status: ${order.status} </div></div>
+  </header>
+
+
+  <div class="order-summary">
+  <div>Customer Name: ${order.name} </div>
+  <div> Customer Notes: ${order.notes} </div>
+  </div>
+
+
+  </article>`);
+
+  return $order;
 };

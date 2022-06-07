@@ -17,6 +17,8 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/orderapp.js"></script>
+
 </head>
 
 <body>
@@ -24,46 +26,10 @@
 
 <header class="Admin-header">Orders: </header>
 
-<article class="posted-order">
-<header class="order-timestamp"> Time Created: <%= orders[0].timestamp %> </header>
-<header>
-  <div class="header-number"> Order Number: <%= orders[0].id %>
-  <div>Status: <%= orders[0].status %> </div></div>
-</header>
-
-<div class="order-summary">
-<div>Customer Name: <%= orders[0].name %> </div>
-<div> Customer Notes: <%= orders[0].notes %> </div>
-<div> </div>
-
-</div>
-
-<div class="list-items">Order items:
-  <% for (i=0; i < orders.length; i++) { %>
-  <li>
-<%= orders[i].title %>
-
-</li>
-<% } %>
-</div>
-
-<footer class="total-price">Total price to be paid:
-
-</footer>
+<section id="order-container">
 
 
-
-
-
-
-
-
-
-
-
-
-</article>
-
+</section>
 
 </body>
 </html>
