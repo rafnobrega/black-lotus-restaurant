@@ -15,7 +15,7 @@ $(document).ready(() => {
     }
   };
   loadOrders()
-});
+
 
 
 const createOrderElement = function(order) {
@@ -42,3 +42,6 @@ const createOrderElement = function(order) {
 
   return $order;
 };
+
+
+});
