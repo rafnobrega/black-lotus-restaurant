@@ -6,7 +6,9 @@ const cookieSession = require('cookie-session');
 module.exports = (db) => {
   // GET /login/
   router.get("/", (req, res) => {
-    res.render("login");
+    let templateVars = {userId : req.session.userId}
+    console.log('This is the user id from login',req.session.userId);
+    res.render("login",templateVars);
   });
 
  // POST /login/

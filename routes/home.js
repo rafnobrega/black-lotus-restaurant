@@ -11,7 +11,9 @@ const router  = express.Router();
 module.exports = (db) => {
   // GET /home/
   router.get("/", (req, res) => {
-    res.render("home");
+    let templateVars = {userId : req.session.userId}
+    //console.log('This is the user id ',req.session.userId);
+    res.render("home",templateVars);
   });
 
   return router;

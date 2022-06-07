@@ -4,7 +4,9 @@ const router  = express.Router();
 module.exports = (db) => {
   // GET /register/
   router.get("/", (req, res) => {
-    res.render("register");
+    let templateVars = {userId : req.session.userId}
+    console.log('This is the user id from register',req.session.userId);
+    res.render("register",templateVars);
   });
 
 
