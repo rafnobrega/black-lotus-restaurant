@@ -11,8 +11,9 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    let templateVars = { userId: req.session.userId };
     console.log("BODY: ", req.body);
-    res.render("cart");
+    res.render("cart", templateVars);
   });
 
   return router;
