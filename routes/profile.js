@@ -18,18 +18,22 @@ module.exports = (db) => {
     WHERE orders.user_id = $1
     ;
     `
-    const sqlValues = [req.session.userId]
-    db.query(sqlquery,sqlValues).then ((response) => {
+    const userId = [req.session.userId]
+    db.query(sqlquery,userId).then ((response) => {
       let users = response.rows // rename to order
-      console.log(users);
+      // console.log(users);
       let sum = 0;
       users.forEach(element => {
         //console.log("element",element.amount);
         sum = sum + element.amount;
       });
+      // if(!users[0]){
+      //   res.render('profile',templateVars);
+      // }
       let countTax = sum * (13/100);
+      console.log('this is my tip',users[0].tip)
       let totalAmount = countTax + sum + users[0].tip;
-      let templateVars = {users,sum,countTax,totalAmount};
+      let templateVars = {users,sum,countTax,totalAmount,userId};
       
       res.render('profile',templateVars);
     });

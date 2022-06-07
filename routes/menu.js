@@ -7,7 +7,7 @@ module.exports = (db) => {
       .then(data => {
         let menu = data.rows;
         // console.log('menu:' ,menu)
-        let templateVars = { menu }
+        let templateVars = { menu,userId : req.session.userId}
         res.render('menu', templateVars);
       })
       .catch(err => {
