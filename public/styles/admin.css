@@ -45,5 +45,13 @@ body {
 }
 
 .total-price {
-  margin-top: 100px;
+  margin-top: 7px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.list-items {
+  display: flex;
+  flex-flow: column wrap;
 }

@@ -58,7 +58,7 @@ const adminRoutes = require("./routes/admin");
 // Note: Feel free to replace the example routes below with your own
 app.use("/admin", adminRoutes(db));
 app.use("/login", loginRoutes(db));
-app.use("/logout", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
 app.use("/cart", cartRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/menu", dishesRoutes(db));

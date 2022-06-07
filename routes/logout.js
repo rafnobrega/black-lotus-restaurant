@@ -9,8 +9,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
       db.query(`SELECT *
       FROM users;`).then((result => {
-        req.session = null
-        res.end()
+        console.log('hello!')
+        req.session = null;
         res.redirect("/home");
       }))
 

@@ -8,8 +8,7 @@ const loadOrders = function() {
 $(document).ready(() => {
 
   const renderOrders = function(orders) {
-    $('#tweets-container').empty();
-    for (order of orders) {
+    for (let order of orders) {
       let returnValue = createTweetElement(order);
       $('#tweets-container').prepend(returnValue);
     }
