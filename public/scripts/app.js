@@ -1,5 +1,6 @@
 // Client facing scripts here
 
+// MENU PAGE:
 $(document).ready(function () {
   let counterSubtotal = 0;
   let dishTitle = "";
@@ -11,10 +12,9 @@ $(document).ready(function () {
     let string = "";
     for (const item of summary) {
       string += `${item.quantity}x ${item.dishTitle} $${item.price} <br>`;
-      // console.log(string);
     }
     return string;
-  }
+  };
 
   $(".add-to-order").on("click", function (event) {
     const $parent = $(event.target).parent();
@@ -34,19 +34,50 @@ $(document).ready(function () {
       }
     }
     if (!itemFound) {
-      summary.push({quantity, dishTitle, price});
+      summary.push({ quantity, dishTitle, price });
     }
-
 
     $(".place-my-order-summary").html(`${parseOrder(summary)}`);
     $(".place-my-order-subtotal").text(`$ ${counterSubtotal.toFixed(2)}`);
   });
 
+  // Sets cookie when the "Review my order" button is clicked:
   $("#place-my-order-button").on("click", function (event) {
-  const setMenuCookie = function () {
-    Cookies.set("menu order", JSON.stringify(summary));
-  };
-  setMenuCookie();
-});
+    const setMenuCookie = function () {
+      Cookies.set("summary", JSON.stringify(summary));
+    };
+    setMenuCookie();
+  });
+
+
+
+  let myCookie = Cookies.get("summary");
+  let parsedMyCookie = JSON.parse(myCookie);
+  console.log(parsedMyCookie[0]);
+
+
+
 });
 
+
+
+
+
+
+// $("#place-my-order-button").on("click", function (event) {
+//   const populateCart = function () {
+//     let $newItem = $(`
+//     <p>Hello</p>
+//     `);
+//     return $newItem;
+//   };
+//   const renderCart = function (items) {
+//     let container = $(".pay-order-summary-item");
+//     container.empty();
+//     for (let item of items) {
+//       let $newItem = populateCart(item);
+//       container.prepend($newItem);
+//     }
+//   };
+//   renderCart();
+// });
