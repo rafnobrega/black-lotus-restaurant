@@ -2,11 +2,11 @@
 
 // MENU PAGE:
 $(document).ready(function () {
-  let counterSubtotal = 0;
   let dishTitle = "";
   let quantity = 0;
   let price = 0;
-  let summary = [];
+  let counterSubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal")) || 0;
+  let summary = JSON.parse(window.localStorage.getItem("summary")) || [];
 
   const parseOrder = (summary) => {
     let string = "";
@@ -15,6 +15,11 @@ $(document).ready(function () {
     }
     return string;
   };
+
+  // Re-render the summary and subtotal if the user goes back to the Menu page:
+  $(".place-my-order-summary").html(`${parseOrder(summary)}`);
+  $(".place-my-order-subtotal").text(`$ ${counterSubtotal.toFixed(2)}`);
+
 
   // "Add to Order" button functionality:
   $(".add-to-order").on("click", function (event) {
@@ -44,34 +49,26 @@ $(document).ready(function () {
     $(".place-my-order-summary").html(`${parseOrder(summary)}`);
     // Add price to the subtotal:
     $(".place-my-order-subtotal").text(`$ ${counterSubtotal.toFixed(2)}`);
-  });
 
-  // Set cookie when the "Review my order" button is clicked:
-  $("#place-my-order-button").on("click", function (event) {
-    const setMenuCookie = function () {
-      Cookies.set("summary", JSON.stringify(summary));
-    };
-    setMenuCookie();
-  });
+    // Set the localStorage with the summary of items selected:
+    $("#place-my-order-button").on("click", function (event) {
+      // event.preventDefault();
+      const setCartItems = function () {
+        let stringifiedSummary = JSON.stringify(summary);
+         window.localStorage.setItem("summary", stringifiedSummary);
+      };
+      setCartItems();
 
-  // Test if cookie is getting logged:
-  let summaryCookie = Cookies.get("summary");
-  let parsedSummaryCookie = JSON.parse(summaryCookie);
-  console.log(parsedSummaryCookie);
+            const setSubtotal = function () {
+              let stringifiedSubtotal = JSON.stringify(counterSubtotal);
+              window.localStorage.setItem("counterSubtotal", stringifiedSubtotal);
+            };
+            setSubtotal();
+
+    });
+
+
+
+
+  });
 });
-
-
-  //   // Tentative of rendering the summary on the Cart page:
-  //     const renderSummary = function (summary) {
-  //     for (let item of summary) {
-  //       let returnValue = createSummaryElement(summary);
-  //       $(".pay-order-summary-item").append(returnValue);
-  //     }
-  //     };
-  //     renderSummary();
-
-  //   const createSummaryElement = function (summary) {
-  //     const $summary = $(`<p>${summary.quantity}x ${summary.dishTitle} $${summary.price} <br>`);
-  //   return $summary;
-  //   };
-

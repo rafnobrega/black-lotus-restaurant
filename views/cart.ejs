@@ -17,23 +17,35 @@
 <body>
   <%-include('partials/_header') %>
     <h1>Cart:</h1>
-
     </div>
     <div class="pay-order">
       <span>Items:</span>
-      <div class="pay-order-summary">
-        <p class="pay-order-summary-item">testttt</p>
+      <div id="pay-o-summary" class="pay-order-summary">
+        <p class="pay-order-summary-item">
+
+        </p>
       </div>
       <div class="subtotal-wrapper">
         <span>Subtotal:</span>
-        <p class="pay-order-subtotal">$</p>
+        <p class="pay-order-subtotal"></p>
       </div>
       <form method="POST" action="">
         <button id="pay-order-button" class="btn btn-primary" type="submit" value="submit">Pay</button>
       </form>
     </div>
 
+<script>
+let mySummary = JSON.parse(window.localStorage.getItem("summary"));
+let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal"));
 
+for (let item of mySummary) {
+  let returnValue = `<p class="pay-order-summary-item">
+${item.quantity}x ${item.dishTitle} $${item.price} <br>
+</p>`
+$("#pay-o-summary").append(returnValue);
+};
+$(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
+</script>
 </body>
 
 </html>
