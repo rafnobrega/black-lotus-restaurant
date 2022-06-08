@@ -27,7 +27,7 @@
         </p>
       </div>
       <div class="subtotal-wrapper">
-        <span>Subtotal:</span>
+        <span>Total after taxes:</span>
         <p class="pay-order-subtotal"></p>
       </div>
 
@@ -81,7 +81,7 @@
 
     <script>
       let mySummary = JSON.parse(window.localStorage.getItem("summary"));
-      let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal"));
+      let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal")* 1.13);
 
       for (let item of mySummary) {
         let returnValue = `<p class="pay-order-summary-item">
