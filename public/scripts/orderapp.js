@@ -7,8 +7,8 @@ $(document).ready(() => {
         renderOrders(orderData);
         $(".send-button").on("click", (e) => {
         e.preventDefault();
-        // console.log('Hello there.')
         $.post('/admin/checkout')
+        $('.posted-order').remove()
       });
       });
   };
