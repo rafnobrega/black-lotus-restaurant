@@ -10,12 +10,9 @@ module.exports = (db) => {
     ORDER BY orders.timestamp;`).then((response) => {
       let orders = response.rows
       let templateVars = {userId : req.session.userId}
-<<<<<<< HEAD
 
-=======
     console.log('This is the user id from admin',req.session.userId);
       console.log('orders:', orders)
->>>>>>> profile-style3
       if (req.query.json) {
         res.json(orders)
       }
@@ -23,7 +20,6 @@ module.exports = (db) => {
         res.render('admin',templateVars)
 
     });
-<<<<<<< HEAD
 
 
     router.post("/", (req, res) => {
@@ -53,8 +49,6 @@ module.exports = (db) => {
       });
 
     })
-=======
->>>>>>> profile-style3
   });
 
 return router;

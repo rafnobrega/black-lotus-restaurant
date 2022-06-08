@@ -4,11 +4,7 @@ const router = express.Router();
 module.exports = (db) => {
   //get request for profile page
   router.get('/' ,(req,res) => {
-<<<<<<< HEAD
-    const sqlquery = `SELECT dishes.title, dishes_orders.dish_id,total_price,
-=======
     const sqlquery = `SELECT users.* ,dishes.title, dishes_orders.dish_id,total_price,
->>>>>>> profile-style3
     notes,orders.user_id,dishes.price,orders.taxes,users.name,
     dishes_orders.order_id,dishes_orders.quantity,user_id,dishes.price * dishes_orders.quantity as amount,orders.status
 
@@ -20,15 +16,15 @@ module.exports = (db) => {
     ON orders.id = order_id
     LEFT JOIN dishes
     ON dishes_orders.dish_id = dishes.id
-   
-    
+
+
     WHERE users.id = $1;
     ;
     `
     const userId = [req.session.userId]
     console.log("login----------",userId[0])
     db.query(sqlquery,userId
-    
+
     ).then ((response) => {
       let users = response.rows // rename to order
       console.log(users);
@@ -43,11 +39,7 @@ module.exports = (db) => {
       let countTax = sum * (13/100);
       let totalAmount = countTax + sum ;
       let templateVars = {users,sum,countTax,totalAmount,userId};
-<<<<<<< HEAD
-
-=======
       console.log(templateVars)
->>>>>>> profile-style3
       res.render('profile',templateVars);
     });
 });
