@@ -30,7 +30,7 @@ module.exports = (db) => {
       let userArray = result.rows;
 
       for (let i = 0; i < userArray.length; i++) {
-      // console.log('emails:', userArray[i].email)
+
       if (newUserEmail === userArray[i].email || newUserPassword === userArray[i].password || newUserNumber === userArray[i].phone) {
        return res.status(401).send("Error, something's already in use!");
          }

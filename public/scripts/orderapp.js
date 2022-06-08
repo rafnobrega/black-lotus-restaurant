@@ -3,13 +3,19 @@ $(document).ready(() => {
   const loadOrders = function() {
     $.get('/admin?json=1')
       .then((orderData) => {
+        // console.log('orderData: ', orderData)
         renderOrders(orderData);
+        $(".send-button").on("click", (e) => {
+        e.preventDefault();
+        console.log('Hello there.')
+        $.post('/admin/checkout')
+      });
       });
   };
 
   const renderOrders = function(orders) {
     for (let order of orders) {
-
+      // console.log('order:', order)
       let returnValue = createOrderElement(order);
       $('#order-container').append(returnValue);
     }
@@ -23,7 +29,7 @@ const createOrderElement = function(order) {
 
   const $order = $(`
   <article class="posted-order">
-  <header class="order-timestamp"> Time Created: ${order.timestamp} %>
+  <header class="order-timestamp"> Time Created: ${order.timestamp}
    </header>
 
    <header>
@@ -35,6 +41,10 @@ const createOrderElement = function(order) {
   <div class="order-summary">
   <div>Customer Name: ${order.name} </div>
   <div> Customer Notes: ${order.notes} </div>
+  </div>
+
+  <div class="send-message">
+  <button type="submit" class="send-button">Notify customer of order completion</button>
   </div>
 
 
