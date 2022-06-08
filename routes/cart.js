@@ -27,9 +27,11 @@ module.exports = (db) => {
 
 
   router.post("/new", (req, res) => {
-
+    console.log(' poop req body: ', req.body)
       const retrievedUserId = req.session.userId;
       const order = req.body;
+      console.log('will this work?', req.body.order)
+      let orderArray = req.body.order;
       const orderPrice = order.price * 100;
       const taxPrice = (orderPrice * 0.13);
       const orderNotes = order.notes;
@@ -39,14 +41,18 @@ module.exports = (db) => {
       ($1, $2, $3, $4, $5, $6, $7)
       ;`, ['open', orderPrice, taxPrice, orderNotes, 25, 1, retrievedUserId]).then(() => {
 
-        client.messages.create({
-          to: process.env.MY_PHONE_NUMBER,
-          from: '(864) 387-4042',
-          body: 'Your order is confirmed'
-        })
-        .then((message) => {
-          console.log(message.sid);
-        })
+        // for (let index of orderArray) {
+        //   console.log('quantity:', index.quantity)
+        //   console.log('title: ', index.dishTitle)
+        //   console.log('price', index.price);
+
+        //   db.query(`INSERT INTO dishes_orders (dish_id, order_id, quantity)
+        // VALUES ($1, $2, $3);`, [1, 1, index.quantity])
+        // }
+
+        // db.query(`INSERT INTO dishes_orders (dish_id, order_id, quantity)
+        // VALUES ($1, $2, $3)
+        // ;`, [1, order.quantity])
       })
 
       let templateVars = { userId: req.session.userId };
@@ -57,3 +63,11 @@ module.exports = (db) => {
 };
 
 
+// client.messages.create({
+//   to: process.env.MY_PHONE_NUMBER,
+//   from: '(864) 387-4042',
+//   body: 'Your order is confirmed'
+// })
+// .then((message) => {
+//   console.log(message.sid);
+// })
