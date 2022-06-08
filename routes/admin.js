@@ -11,8 +11,8 @@ module.exports = (db) => {
       let orders = response.rows
       let templateVars = {userId : req.session.userId}
 
-    console.log('This is the user id from admin',req.session.userId);
-      console.log('orders:', orders)
+    // console.log('This is the user id from admin',req.session.userId);
+      // console.log('orders:', orders)
       if (req.query.json) {
         res.json(orders)
       }
@@ -32,7 +32,6 @@ module.exports = (db) => {
 
     router.post('/checkout', (req, res) => {
 
-    console.log('Ali was here.')
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -45,7 +44,7 @@ module.exports = (db) => {
     })
 
       .then((message) => {
-        console.log(message.sid);
+          console.log(message.sid);
       });
 
     })
