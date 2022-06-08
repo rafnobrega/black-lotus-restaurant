@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
 </head>
@@ -34,65 +35,53 @@
   </div>
   <h2 class="summary-title">Order summary:</h2>
   <!-- user order summary table -->
-  <div class="table">
-    <!-- items in the table -->
-    <div class="items">
-      <p>Item:</p>
-      <p>
-        <% for(let user of users) { %>
-          <hr>
-          <%= user.title %>
-            <% } %>
-      <hr><p>Subtotal:</p></p>
-      <p>Taxes:</p>
-      <p>Tips</p>
-      <p><b>Total:</b></p>
-      <p>Special instructions:-</p>
-    </div>
-    <div class="prices">
-      <p>Price:</p>
-      <p>
-        <!-- prices of the dishes -->
-        <% for(let user of users) { %>
-          <hr>
-          $ &nbsp; <%= Math.floor(user.price / 100).toFixed(2) %>
-            <% } %>
-            <hr class = "total">
-    </div>
-     <!-- quantity of the dishes ordered -->
-    <div class="quantity">
-      <p>Quantity:</p>
-      <p>
-        <% for(let user of users) { %>
-          <hr>
-          <%= user.quantity %>
-            <% } %>
-            <hr class = "total">
-
-
-    </div>
-    <div class="amount">
-      <p>Total Price:</p>
-      <p>
-        <% for(let user of users) { %>
-          <hr>
-          <!-- bill total before taxes and tips -->
-          $ &nbsp;<%= (user.amount / 100).toFixed(2) %>
-            <% } %>
-            <hr class = "total">
-            <!-- sum of the bill -->
-            <p>$ &nbsp;<%= (sum / 100).toFixed(2) %>
-            </p>
-            </p>
-            <p>$ &nbsp;<%= (countTax / 100).toFixed(2) %></p>
-            $ &nbsp;<%= (users[0].tip / 100).toFixed(2) %>
-            <!-- bill total after taxes and tips -->
-            <p>$ &nbsp;<b><%= (totalAmount / 100).toFixed(2)%></p></b>
-            <div class="notes"> <%= users[0].notes %></div>
-            <hr><hr>
-    </div>
-  </div>
-
+    <!-- All the titles in the table -->
+  <table class ="order">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Prices</th>
+        <th>Quantity</th>
+        <th>Total price</th>
+        
+     </tr>
+    </thead>
+    <tbody>
+      <!-- lopping through the dishes,prices,quantity,amount -->
+       <% for(let user of users) { %>
+      <tr><td><%= user.title %></td>
+        <td>$<%= (user.price / 100).toFixed(2) %></td>
+        <td><%= user.quantity %></td>
+        <td><%= (user.amount / 100).toFixed(2) %></td>
+      </tr>
+        <% } %>
+     
+    </tbody>
+    <tfoot>
+      <tr class="subtotal" >
+        <!-- user colspan to skip the table row -->
+        <td colspan="3">Subtotal</td>
+        <td><%= (sum / 100).toFixed(2) %></td>
+      </tr>
+      <tr>
+      <td colspan="3">Taxes</td>
+      <td>$<%= (countTax / 100).toFixed(2) %></td>
+      </tr>
+      <tr>
+        <td colspan="3">Tips</td>
+        <td>$<%= (users[0].tip / 100).toFixed(2) %></td>
+        </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td>$<%= (totalAmount / 100).toFixed(2)%></td>
+      </tr>
+      <tr>
+        <td colspan="3">Special instructions</td>
+        <td class ="notes"><%= users[0].notes %></td>
+      </tr>
+    
+    </tfoot>
+  </table>
 </body>
 
 </html>
