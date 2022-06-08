@@ -5,6 +5,7 @@ $(document).ready(function () {
   let dishTitle = "";
   let quantity = 0;
   let price = 0;
+  let dishId = 0;
   let counterSubtotal =
     JSON.parse(window.localStorage.getItem("counterSubtotal")) || 0;
   let summary = JSON.parse(window.localStorage.getItem("summary")) || [];
@@ -28,6 +29,7 @@ $(document).ready(function () {
     price = $parent.find(".item-price").text().trim().slice(1);
     quantity = Number($parent.find(".item-quantity").val());
     dishTitle = $parent.parent().find(".dish-title").text().trim();
+    dishId = Number($parent.parent().find(".dish-id").text().trim());
 
     counterSubtotal += price * quantity;
 
@@ -43,7 +45,7 @@ $(document).ready(function () {
       }
     }
     if (!itemFound) {
-      summary.push({ quantity, dishTitle, price });
+      summary.push({ dishId, quantity, dishTitle, price });
     }
 
     // Add item line in the summary:
@@ -78,6 +80,30 @@ $(document).ready(function () {
     $(".place-my-order-subtotal").text(`$ 0.00`);
     summary = [];
     counterSubtotal = 0;
+  });
 
+
+
+
+
+
+
+  // ⭐️ Jump back to the top button:
+  $("#back-to-top").hide();
+
+  $("#back-to-top").click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+  });
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop()) {
+      $(".navbar").hide();
+      $("#back-to-top").stop(true, true).fadeIn();
+    } else {
+      $("#back-to-top").stop(true, true).fadeOut();
+      $(".navbar").show();
+    }
   });
 });
+
+
