@@ -43,7 +43,9 @@ module.exports = (db) => {
       RETURNING users.id;`,
       [newUserName, newUserEmail, newUserPassword, newUserNumber]).then((result => {
         let loginId = result.rows[0].id
+        console.log('login:::::::',loginId)
         req.session.userId = loginId
+        
         res.redirect('/home')
 
       }))
