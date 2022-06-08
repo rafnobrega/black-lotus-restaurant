@@ -31,13 +31,11 @@ module.exports = (db) => {
       //   res.render('profile',templateVars);
       // }
       let countTax = sum * (13/100);
-      console.log('this is my tip',users[0].tip)
-      let totalAmount = countTax + sum + users[0].tip;
+      let totalAmount = countTax + sum ;
       let templateVars = {users,sum,countTax,totalAmount,userId};
-
+      
       res.render('profile',templateVars);
     });
 });
 return router;
 }
-
