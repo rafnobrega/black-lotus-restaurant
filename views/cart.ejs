@@ -29,6 +29,19 @@
         <span>Subtotal:</span>
         <p class="pay-order-subtotal"></p>
       </div>
+
+
+      <form id="notes-form" onkeydown="return event.key != 'Enter';">
+        <label id="notes-label" for="notes"><span>Notes:</span></label>
+  <textarea
+  placeholder="Your special request is welcomed ;)"
+  class="cart-notes">
+</textarea>
+</form>
+
+
+
+
       <div class="cart-buttons">
         <button id="review-order-button"  href="/menu" class="btn btn-primary" type="submit" value="submit">Review Order</button>
         <form method="POST" action="">

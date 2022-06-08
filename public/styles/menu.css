@@ -90,12 +90,13 @@ h1 {
   color: rgb(0, 0, 0);
   cursor: pointer;
   border-radius: 3px;
+  transition: 200ms;
 }
 
 .add-to-order:hover {
   background-color: #bfff78;
   color: black;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .place-my-order {
