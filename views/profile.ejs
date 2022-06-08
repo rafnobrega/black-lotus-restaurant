@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/orderapp.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
 </head>
@@ -23,18 +23,18 @@
     <%- include('partials/_header.ejs') %>
   </nav>
   <div class="welcome-wrapper">
-    <div class="welcome-user">
-      <p>Welcome, <%= users[0].name %>!
+    <div class="welcome-orderitem">
+      <p>Welcome, <%= orderDetails[0].name %>!
       </p>
     </div>
     <div class="welcome-order">
-      <p>Order number: <%= users[0].order_id %><br>
-        Order-status: <b><%= users[0].status %></b>
+      <p>Order number: <%= orderDetails[0].order_id %><br>
+        Order-status: <b><%= orderDetails[0].status %></b>
       </p>
     </div>
   </div>
   <h2 class="summary-title">Order summary:</h2>
-  <!-- user order summary table -->
+  <!-- orderitem order summary table -->
     <!-- All the titles in the table -->
   <table class ="order">
     <thead>
@@ -48,32 +48,32 @@
     </thead>
     <tbody>
       <!-- lopping through the dishes,prices,quantity,amount -->
-       <% for(let user of users) { %>
-      <tr><td><%= user.title %></td>
-        <td>$<%= (user.price / 100).toFixed(2) %></td>
-        <td><%= user.quantity %></td>
-        <td><%= (user.amount / 100).toFixed(2) %></td>
+       <% for(let orderitem of orderDetails) { %>
+      <tr><td><%= orderitem.title %></td>
+        <td>$<%= (orderitem.price / 100).toFixed(2) %></td>
+        <td><%= orderitem.quantity %></td>
+        <td><%= (orderitem.total_price / 100).toFixed(2) %></td>
       </tr>
         <% } %>
      
     </tbody>
     <tfoot>
       <tr class="subtotal" >
-        <!-- user colspan to skip the table row -->
+        <!-- orderitem colspan to skip the table row -->
         <td colspan="3">Subtotal</td>
         <td><%= (sum / 100).toFixed(2) %></td>
       </tr>
       <tr>
       <td colspan="3">Taxes</td>
-      <td>$<%= (users[0].taxes/100).toFixed(2) %></td>
+      <td>$<%= (orderDetails[0].taxes/100).toFixed(2) %></td>
       </tr>
       <tr>
         <td colspan="3">Total</td>
-        <td>$<%= (totalAmount / 100).toFixed(2)%></td>
+        <td>$<%= (orderDetails[0].total_price / 100).toFixed(2)%></td>
       </tr>
       <tr>
         <td colspan="3">Special instructions</td>
-        <td class ="notes"><%= users[0].notes %></td>
+        <td class ="notes"><%= orderDetails[0].notes %></td>
       </tr>
     
     </tfoot>
