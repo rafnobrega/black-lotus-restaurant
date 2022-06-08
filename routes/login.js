@@ -7,7 +7,6 @@ module.exports = (db) => {
   // GET /login/
   router.get("/", (req, res) => {
     let templateVars = {userId : req.session.userId}
-    // console.log('This is the user id from login',req.session.userId);
     res.render("login",templateVars);
   });
 
@@ -20,13 +19,11 @@ module.exports = (db) => {
   FROM users;`)
   .then(data => {
     let loginData = data.rows
-    // console.log('data.rows: ', data.rows)
-    //
 
     for (let i = 0; i < loginData.length; i++) {
       if (email === loginData[i].email && password === loginData[i].password) {
         let loginId = loginData[i].id
-        // console.log('loginID: ', loginId)
+
         req.session.userId = loginId;
         return res.redirect('/home')
       }
