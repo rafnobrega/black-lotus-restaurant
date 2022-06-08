@@ -23,11 +23,25 @@ justify-content: space-between;
   width: 100%;
 }
 
+#nav-logo {
+  display: flex;
+}
+
+.nav-logo-button {
+  display: flex;
+
+}
 .logo {
   display: flex;
   max-width: 60px;
   max-height: 60px;
 }
+
+/* .logo2 {
+  display: flex;
+  max-width: 60px;
+  max-height: 60px;
+} */
 
 .navbar-items {
   display: flex;
@@ -38,13 +52,13 @@ justify-content: space-between;
 
 }
 
-a {
+.nav-item.nav-link {
   text-decoration: none;
     color: #ffffff;
     margin-left: 20px;
       transition: 400ms;
 }
-a:hover {
+.nav-item.nav-link:hover {
   text-decoration: none;
     color: #BFFF78;
     transform: scale(1.2);

@@ -5,7 +5,7 @@ module.exports = (db) => {
   //get request for profile page
   router.get('/' ,(req,res) => {
     const sqlquery = `SELECT dishes.title, dishes_orders.dish_id,total_price,
-    notes,orders.user_id,dishes.price,orders.tip,orders.taxes,users.name,
+    notes,orders.user_id,dishes.price,orders.taxes,users.name,
     dishes_orders.order_id,dishes_orders.quantity,user_id,dishes.price * dishes_orders.quantity as amount,orders.status
 
     FROM dishes
@@ -33,7 +33,7 @@ module.exports = (db) => {
       let countTax = sum * (13/100);
       let totalAmount = countTax + sum ;
       let templateVars = {users,sum,countTax,totalAmount,userId};
-      
+
       res.render('profile',templateVars);
     });
 });

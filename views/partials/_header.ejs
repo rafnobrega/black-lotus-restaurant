@@ -8,10 +8,8 @@
   <nav class="navbar">
     <div class="nav-wrapper">
       <div id="nav-logo">
-        <img
-          class="logo"
-          src="https://pngimg.com/uploads/lotus_flower/lotus_flower_PNG15.png"
-        />
+        <a class="nav-logo-button" href="/home"><img class="logo"
+          src="https://i.ibb.co/zfrk9nC/Lotus-Flower.png"/></a>
       </div>
       <div class="navbar-items">
         <% if(!userId) { %>
@@ -20,9 +18,9 @@
         <a class="nav-item nav-link" href="/login">Login</a>
         <a class="nav-item nav-link" href="/register">Register</a>
 
-       
-        
-        <% } if(userId){  %> 
+
+
+        <% } if(userId){  %>
         <a class="nav-item nav-link" href="/home">Home</a>
        <a class="nav-item nav-link" href="/menu">Menu</a>
        <a class="nav-item nav-link" href="/cart">My Cart</a>

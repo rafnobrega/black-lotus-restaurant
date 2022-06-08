@@ -124,3 +124,46 @@ body h1 {
   color: black;
   transform: scale(1.1);
 }
+
+
+/* PAYMENT PROCESSED SPINNING LOTUS */
+.spinning-lotus {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+    align-items: center;
+}
+
+
+.spinning-lotus img {
+  margin-top: 20px;
+  max-width: 70px;
+  /* transition: 2000ms; */
+  animation: rotation 5s;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+
+.payment-msg {
+  display: none;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  margin-top: 10px;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
