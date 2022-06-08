@@ -192,20 +192,21 @@ h1 {
 
 /* BACK TO TOP BUTTON */
 
-.fa-solid.fa-circle-up {
+.fa-solid.fa-square-caret-up {
   display: flex;
-  color: #0597f0;
-  background: #f0eb05;
+  color: rgba(105, 0, 0, 0.8);
+
   cursor: pointer;
   font-size: 3rem;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 50%;
+  bottom: 17px;
+  right: 27px;
+  transition: 300ms;
+
 
 }
 
-.fa-solid.fa-circle-up:hover {
-  color: #0b6aa3;
-  background: white;
+.fa-solid.fa-square-caret-up:hover {
+  color: #bfff78;
+
 }

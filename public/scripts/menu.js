@@ -83,11 +83,6 @@ $(document).ready(function () {
   });
 
 
-
-
-
-
-
   // ⭐️ Jump back to the top button:
   $("#back-to-top").hide();
 
@@ -97,11 +92,9 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     if ($(this).scrollTop()) {
-      $(".navbar").hide();
       $("#back-to-top").stop(true, true).fadeIn();
     } else {
       $("#back-to-top").stop(true, true).fadeOut();
-      $(".navbar").show();
     }
   });
 });

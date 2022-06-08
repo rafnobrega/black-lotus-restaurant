@@ -50,10 +50,18 @@
     <div class="payment-msg">
       <p>Payment processed. Thank you for choosing us.</p>
     </div>
+
     <script>
       $(function () {
         $("#pay-order-button").click(function () {
-          setTimeout(function(){
+          if (Number($(".pay-order-subtotal").attr("data-value")) <= 0) {
+            alert("You cart is empty. Please review it.");
+            return;
+          }
+          let notes = $(".cart-notes").val();
+          window.localStorage.setItem("notes", notes);
+
+          setTimeout(function () {
             let actualDivDisplay = $(".spinning-lotus").css("display");
             let newDivDisplay = "";
             if (actualDivDisplay == "none") {
@@ -64,7 +72,7 @@
             $(".spinning-lotus").css("display", newDivDisplay);
           }, 1000);
 
-          setTimeout(function(){
+          setTimeout(function () {
             let actualDivDisplay = $(".payment-msg").css("display");
             let newDivDisplay = "";
             if (actualDivDisplay == "none") {
@@ -81,7 +89,7 @@
 
     <script>
       let mySummary = JSON.parse(window.localStorage.getItem("summary"));
-      let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal")* 1.13);
+      let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal") * 1.13);
 
       for (let item of mySummary) {
         let returnValue = `<p class="pay-order-summary-item">
@@ -90,6 +98,7 @@ ${item.quantity}x ${item.dishTitle} $${item.price} <br>
         $("#pay-o-summary").append(returnValue);
       };
       $(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
+      $(".pay-order-subtotal").attr("data-value", mySubtotal.toFixed(2))
     </script>
 
 
