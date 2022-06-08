@@ -3,4 +3,14 @@ $(document).ready(function () {
        window.location.href = "/menu";
     });
 
+
+
+  $("#pay-order-button").on("click", function (e) {
+    e.preventDefault();
+    let notes = $(".cart-notes").val();
+    window.localStorage.setItem("notes", notes);
+
 });
+
+});
+
