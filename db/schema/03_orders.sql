@@ -6,7 +6,6 @@ CREATE TABLE orders (
   STATUS VARCHAR(255) NOT NULL DEFAULT 'open',
   total_price INTEGER NOT NULL,
   taxes INTEGER NOT NULL,
-  tip INTEGER DEFAULT 0,
   notes TEXT,
   approx_time INTEGER NOT NULL,
   payment_method INTEGER,
