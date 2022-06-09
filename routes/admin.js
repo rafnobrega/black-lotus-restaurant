@@ -44,6 +44,7 @@ module.exports = (db) => {
 
       .then((message) => {
           console.log(message.sid);
+          res.sendStatus(204)
       });
 
     })
