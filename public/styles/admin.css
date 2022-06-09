@@ -6,30 +6,47 @@ body {
 }
 
 .Admin-header {
-  color: white;
-  font-size: 30px;
-  margin-left: 20px;
+  color: #ff9d00;
+  margin-left: 48.5px;
   margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 40px;
+  border-bottom: #ff9d00 solid ;
+
 }
 
 .posted-order {
-  background-color: white;
-  border: solid red;
+  background-color: #ffd9cf;
+  border: solid  rgba(126, 35, 10, 1);
   margin: 50px;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }
 
 .header-number {
   display: flex;
+  font-weight: bolder;
   font-size: 20px;
   flex-direction: column;
   margin: 10px;
+  background-color: rgba(179, 54, 20, 1);
+  color: white;
+  padding-left: 5px;
 }
 
 .order-summary {
+  color: white;
   height: 100px;
   margin: 10px;
-  background-color: lightsalmon;
+  background-color: rgba(179, 54, 20, 1);
+  padding: 5px;
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column-reverse;
+  justify-content: space-between;
 }
 
 .list-items {
@@ -41,6 +58,7 @@ body {
 .order-timestamp {
   display: flex;
   flex-direction: row-reverse;
+  font-weight: bold;
 }
 
 .total-price {
@@ -56,15 +74,18 @@ body {
 }
 
 .send-button {
+  display: flex;
+  background-color: rgba(179, 54, 20, 1);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
   margin-left: 10px;
+  margin-top: 125px;
 }
 
 #order-container {
   width: 75%;
 }
 
-.status-indicator {
-  color: green;
-  background-color: black;
-  font-weight: bold;
-}
