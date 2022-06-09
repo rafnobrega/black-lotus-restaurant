@@ -157,8 +157,9 @@ ul {
 .address p i {
   color: rgb(232, 81, 39);
   font-size: 1.8rem;
-  margin-right: 13px;
-  transition: 1200ms;
+  padding-left: 7px;
+  padding-right: 7px;
+  transition: 1400ms;
   cursor: pointer;
 }
 
