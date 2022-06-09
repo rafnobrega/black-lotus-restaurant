@@ -201,7 +201,7 @@ background-position: left;
 
 .fa-solid.fa-square-caret-up {
   display: flex;
-  color: rgba(105, 0, 0, 0.8);
+  color: rgba(149, 0, 0, 0.8);
 
   cursor: pointer;
   font-size: 3rem;
