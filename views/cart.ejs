@@ -13,10 +13,30 @@
   <script type="text/javascript" src="/scripts/cart.js"></script>
   <script type="text/javascript" src="/scripts/pay-order.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+  <script type="text/javascript">
+$(document).ready(function() {
+    $("main").css("display", "none");
+    $("main").fadeIn(1500);
+    $("a.transition").click(function(event){
+        event.preventDefault();
+        linkLocation = this.href;
+        $("main").fadeOut(1000, redirectPage);
+    });
+
+    function redirectPage() {
+        window.location = linkLocation;
+    }
+});
+</script>
+
 </head>
 
 <body>
+  <nav>
   <%-include('partials/_header') %>
+  </nav>
+  <main>
     <h1>Cart:</h1>
     </div>
     <div class="pay-order">
@@ -64,5 +84,6 @@ ${item.quantity}x ${item.dishTitle} $${item.price} <br>
       $(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
       $(".pay-order-subtotal").attr("data-value", mySubtotal.toFixed(2))
     </script>
+    </main>
 </body>
 </html>

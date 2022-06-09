@@ -11,12 +11,31 @@
 
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("main").css("display", "none");
+      $("main").fadeIn(1500);
+      $("a.transition").click(function (event) {
+        event.preventDefault();
+        linkLocation = this.href;
+        $("main").fadeOut(1000, redirectPage);
+      });
+
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+  </script>
+
 </head>
 
 <body>
-  <%-include('partials/_header') %>
-  <div>
+  <nav>
+    <%-include('partials/_header') %>
+  </nav>
+  <main>
+    <div>
       <div class="login-wrapper">
         <h3>Login:</h3>
         <div class="login-form">
@@ -30,12 +49,12 @@
               <input type="password" name="password">
             </div>
             <div class="login-button">
-            <input  type="submit" Value="Submit">
-          </div>
+              <input type="submit" Value="Submit">
+            </div>
           </form>
         </div>
       </div>
-  </div>
+    </div>
+  </main>
 </body>
 </html>
-

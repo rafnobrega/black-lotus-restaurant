@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <title>Home</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/home.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script
-      src="https://kit.fontawesome.com/4ea6e3ab0b.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <body>
-    <nav><%- include('partials/_header.ejs') %></nav>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://kit.fontawesome.com/4ea6e3ab0b.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("main").css("display", "none");
+      $("main").fadeIn(1500);
+      $("a.transition").click(function (event) {
+        event.preventDefault();
+        linkLocation = this.href;
+        $("main").fadeOut(1000, redirectPage);
+      });
+
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <nav>
+    <%- include('partials/_header.ejs') %>
+  </nav>
+
+  <main>
     <h1 id="welcome-title">Welcome to Black Lotus Restaurant</h1>
 
     <p id="welcome-description">
@@ -33,11 +47,7 @@
     </p>
 
     <div class="banner-background">
-      <img
-        class="banner-pic"
-        src="https://i.ibb.co/KjKZ8Pw/banner-pic.jpg"
-        alt="indian-cuisine-photo"
-      />
+      <img class="banner-pic" src="https://i.ibb.co/KjKZ8Pw/banner-pic.jpg" alt="indian-cuisine-photo" />
       <!-- Order now button -->
       <div class="button-container-home">
         <a href="/menu" alt="Order now">Order now</a>
@@ -80,5 +90,7 @@
         </p>
       </div>
     </div>
-  </body>
+  </main>
+</body>
+
 </html>

@@ -10,11 +10,31 @@
   <link rel="stylesheet" href="/styles/register.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("main").css("display", "none");
+      $("main").fadeIn(1500);
+      $("a.transition").click(function (event) {
+        event.preventDefault();
+        linkLocation = this.href;
+        $("main").fadeOut(1000, redirectPage);
+      });
+
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+  </script>
+
 </head>
 
 <body>
-  <%-include('partials/_header') %>
+  <nav>
+    <%-include('partials/_header') %>
+  </nav>
+  <main>
     <div class="register-wrapper">
       <h3>Register:</h3>
       <div class="register-email">
@@ -39,7 +59,7 @@
       </div>
       </form>
     </div>
-
+  </main>
 </body>
 
 </html>

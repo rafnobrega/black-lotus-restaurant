@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/orderapp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("main").css("display", "none");
+      $("main").fadeIn(1500);
+      $("a.transition").click(function (event) {
+        event.preventDefault();
+        linkLocation = this.href;
+        $("main").fadeOut(1000, redirectPage);
+      });
+
+      function redirectPage() {
+        window.location = linkLocation;
+      }
+    });
+  </script>
+
+</head>
+
+<body>
+  <nav>
+    <%- include('partials/_header.ejs') %>
+  </nav>
+  <main>
+    <div class="welcome-wrapper">
+      <div class="welcome-orderitem">
+        <p>Welcome, <%= orderDetails[0].name %>!
+        </p>
+      </div>
+      <div class="welcome-order">
+        <p>Order number: <%= orderDetails[0].order_id %><br>
+            Order-status: <b>
+              <%= orderDetails[0].status %>
+            </b>
+        </p>
+      </div>
+    </div>
+    <h2 class="summary-title">Order summary:</h2>
+    <!-- orderitem order summary table -->
+    <!-- All the titles in the table -->
+    <table class="order">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Prices</th>
+          <th>Quantity</th>
+          <th>Total price</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <!-- lopping through the dishes,prices,quantity,amount -->
+        <% for(let orderitem of orderDetails) { %>
+          <tr>
+            <td>
+              <%= orderitem.title %>
+            </td>
+            <td>$<%= (orderitem.price / 100).toFixed(2) %>
+            </td>
+            <td>
+              <%= orderitem.quantity %>
+            </td>
+            <td>
+              <%= (orderitem.price * orderitem.quantity / 100).toFixed(2) %>
+            </td>
+          </tr>
+          <% } %>
+
+      </tbody>
+      <tfoot>
+        <tr class="subtotal">
+          <!-- orderitem colspan to skip the table row -->
+          <td colspan="3">Subtotal</td>
+          <td>
+            <%= ( orderDetails[0].total_price / 100).toFixed(2) %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">Taxes</td>
+          <td>$<%= (orderDetails[0].taxes/100).toFixed(2) %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">Total</td>
+          <td>$<%= (totalAmount / 100).toFixed(2)%>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">Special instructions</td>
+          <td class="notes">
+            <%= orderDetails[0].notes %>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </main>
+</body>
+
+</html>

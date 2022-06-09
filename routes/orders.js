@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  //get request for profile page
+  //get request for Orders page
   router.get('/' ,(req,res) => {
       const queryForLatestOrder =
     ` SELECT
@@ -51,7 +51,7 @@ module.exports = (db) => {
         });
         let totalAmount = orderDetails[0].taxes + orderDetails[0].total_price
         let templateVars = {orderDetails,sum,userId,totalAmount};
-        res.render('profile',templateVars);
+        res.render('orders',templateVars);
       });
     });
 });
