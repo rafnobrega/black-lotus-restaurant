@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-  color: #ffffff;
+  color: #ff9d00;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -86,15 +86,23 @@ h1 {
 
 .add-to-order {
   border: black 1px solid;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+display:inline-block;
+  background-size: 200% 200%;
+  transition: background-position 5s;
+background-image: linear-gradient(to right, #ff9d00 50%, #f7f7f7 0);
+  background-position: right;
+
   color: rgb(0, 0, 0);
   cursor: pointer;
   border-radius: 3px;
-  transition: 200ms;
+  transition: 1000ms;
 }
 
 .add-to-order:hover {
-  background-color: #bfff78;
+  /* background-color: #bfff78; */
+
+background-position: left;
   color: black;
   transform: scale(1.05);
 }
