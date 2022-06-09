@@ -15,7 +15,10 @@ module.exports = (db) => {
       } else {
         res.render("admin", templateVars);
       }
+
     });
+
+
 
 
     router.post("/", (req, res) => {
