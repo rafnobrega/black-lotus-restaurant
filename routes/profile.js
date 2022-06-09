@@ -79,7 +79,8 @@ module.exports = (db) => {
           sum = sum + element.total_price;  
         });
         let countTax = sum * (13/100);
-        let templateVars = {orderDetails,sum,countTax,userId};
+        let totalAmount = orderDetails[0].taxes + orderDetails[0].total_price
+        let templateVars = {orderDetails,sum,countTax,userId,totalAmount};
         res.render('profile',templateVars);
       });
     });
