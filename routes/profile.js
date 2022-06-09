@@ -43,13 +43,14 @@ module.exports = (db) => {
       `
       db.query(queryForOrderDetails,[latestOrder.id]).then ((orderresults) => {
         const orderDetails = orderresults.rows
+        console.log(orderDetails)
         let sum = 0;
+        let elements = 0;
         orderDetails.forEach(element => {
-          sum = sum + element.total_price;
+          sum = sum + element.price;
         });
-        let countTax = sum * (13/100);
         let totalAmount = orderDetails[0].taxes + orderDetails[0].total_price
-        let templateVars = {orderDetails,sum,countTax,userId,totalAmount};
+        let templateVars = {orderDetails,sum,userId,totalAmount};
         res.render('profile',templateVars);
       });
     });

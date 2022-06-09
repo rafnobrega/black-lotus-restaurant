@@ -52,7 +52,7 @@
       <tr><td><%= orderitem.title %></td>
         <td>$<%= (orderitem.price / 100).toFixed(2) %></td>
         <td><%= orderitem.quantity %></td>
-        <td><%= (orderitem.total_price / 100).toFixed(2) %></td>
+        <td><%= (orderitem.price * orderitem.quantity / 100).toFixed(2) %></td>
       </tr>
         <% } %>
 
@@ -61,7 +61,7 @@
       <tr class="subtotal" >
         <!-- orderitem colspan to skip the table row -->
         <td colspan="3">Subtotal</td>
-        <td><%= (sum / 100).toFixed(2) %></td>
+        <td><%= ( orderDetails[0].total_price / 100).toFixed(2) %></td>
       </tr>
       <tr>
       <td colspan="3">Taxes</td>
