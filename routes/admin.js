@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT *, users.name
+    db.query(`SELECT *, users.name, orders.id AS order__id
     FROM orders
     JOIN users
     ON orders.user_id = users.id
@@ -12,11 +12,13 @@ module.exports = (db) => {
       let templateVars = {userId : req.session.userId}
       if (req.query.json) {
         res.json(orders)
+      } else {
+        res.render("admin", templateVars);
       }
 
-        res.render('admin',templateVars)
-
     });
+
+
 
 
     router.post("/", (req, res) => {
@@ -29,7 +31,6 @@ module.exports = (db) => {
 
     router.post('/checkout', (req, res) => {
 
-    console.log('Ali was here.')
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -42,7 +43,7 @@ module.exports = (db) => {
     })
 
       .then((message) => {
-        console.log(message.sid);
+          console.log(message.sid);
       });
 
     })

@@ -7,8 +7,8 @@ $(document).ready(() => {
         renderOrders(orderData);
         $(".send-button").on("click", (e) => {
         e.preventDefault();
-        console.log('Hello there.')
         $.post('/admin/checkout')
+        $('.posted-order').remove()
       });
       });
   };
@@ -33,7 +33,7 @@ const createOrderElement = function(order) {
    </header>
 
    <header>
-    <div class="header-number"> Order Number: ${order.id}
+    <div class="header-number"> Order Number: ${order.order__id}
     <div>Status: ${order.status} </div></div>
   </header>
 
