@@ -10,18 +10,11 @@ module.exports = (db) => {
     ORDER BY orders.timestamp;`).then((response) => {
       let orders = response.rows
       let templateVars = {userId : req.session.userId}
-<<<<<<< HEAD
-
-    // console.log('This is the user id from admin',req.session.userId);
-      // console.log('orders:', orders)
-=======
->>>>>>> profile2
       if (req.query.json) {
         res.json(orders)
+      } else {
+        res.render("admin", templateVars);
       }
-
-        res.render('admin',templateVars)
-
     });
 
 

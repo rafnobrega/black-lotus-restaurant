@@ -35,6 +35,7 @@ module.exports = (db) => {
       const orderPrice = order.price * 100;
       const taxPrice = (orderPrice * 0.13);
       const orderNotes = order.notes;
+      console.log("orderNotes::::::", orderNotes);
 
       db.query(`INSERT INTO orders (status, total_price, taxes, notes, approx_time, payment_method, user_id)
       VALUES
