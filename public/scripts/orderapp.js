@@ -5,11 +5,18 @@ $(document).ready(() => {
       .then((orderData) => {
         // console.log('orderData: ', orderData)
         renderOrders(orderData);
-        $(".send-button").on("click", (e) => {
-        e.preventDefault();
-        $.post('/admin/checkout')
-        $('.posted-order').remove()
-      });
+
+        $(".send-button").on("click", function(e) {
+          e.preventDefault();
+          $.post('/admin/checkout')
+          console.log('this:::::::', this);
+          const order =$( this )
+          .closest( '[data-order-id]')
+          .remove()
+          console.log('order::::', order);
+
+
+        });
       });
   };
 
@@ -28,7 +35,7 @@ const createOrderElement = function(order) {
 
 
   const $order = $(`
-  <article class="posted-order">
+  <article class="posted-order" data-order-id="${order.order__id}">
   <header class="order-timestamp"> Time Created: ${order.timestamp}
    </header>
 
@@ -44,7 +51,7 @@ const createOrderElement = function(order) {
   </div>
 
   <div class="send-message">
-  <button type="submit" class="send-button">Notify customer of order completion</button>
+  <button type="button" class="send-button">Notify customer of order completion</button>
   </div>
 
 
