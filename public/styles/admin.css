@@ -62,3 +62,9 @@ body {
 #order-container {
   width: 75%;
 }
+
+.status-indicator {
+  color: green;
+  background-color: black;
+  font-weight: bold;
+}

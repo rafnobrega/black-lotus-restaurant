@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const bcrypt = require('bcryptjs');
 
 module.exports = (db) => {
   // GET /register/
@@ -15,6 +16,9 @@ module.exports = (db) => {
     const newUserName = req.body.name;
     const newUserNumber = req.body.phoneNumber;
 
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(newUserPassword, salt);
+
   if (newUserEmail === "" || newUserPassword === "" || newUserName === "" || newUserNumber === "") {
     return res.status(400).send("Please fill in all items.");
     }
@@ -26,8 +30,9 @@ module.exports = (db) => {
       let userArray = result.rows;
 
       for (let i = 0; i < userArray.length; i++) {
+      const result = bcrypt.compareSync(newUserPassword, userArray[i].password)
 
-      if (newUserEmail === userArray[i].email || newUserPassword === userArray[i].password || newUserNumber === userArray[i].phone) {
+      if (newUserEmail === userArray[i].email || result || newUserNumber === userArray[i].phone) {
        return res.status(401).send("Error, something's already in use!");
          }
        }
@@ -37,7 +42,7 @@ module.exports = (db) => {
       (name, email, password, phone)
       VALUES ($1, $2, $3, $4)
       RETURNING users.id;`,
-      [newUserName, newUserEmail, newUserPassword, newUserNumber]).then((result => {
+      [newUserName, newUserEmail, hash, newUserNumber]).then((result => {
         let loginId = result.rows[0].id
         req.session.userId = loginId
 

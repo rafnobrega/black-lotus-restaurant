@@ -19,6 +19,8 @@ $(document).ready(() => {
     for (let order of orders) {
       let returnValue = createOrderElement(order);
       $('#order-container').append(returnValue);
+
+      // setTimeout
     }
   };
   loadOrders()
@@ -35,7 +37,7 @@ const createOrderElement = function(order) {
 
    <header>
     <div class="header-number"> Order Number: ${order.order__id}
-    <div>Status: ${order.status} </div></div>
+    <div class="status-indicator">Status: ${order.status} </div></div>
   </header>
 
 
