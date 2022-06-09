@@ -1,15 +1,27 @@
-LHL Node Skeleton
-=========
+## Food Pick-up Ordering App
 
-## Project Setup
+Welcome to Black Lotus Restaurant!
+A food ordering experience for a single restaurant.
 
-The following steps are only for _one_ of the group members to perform.
+Hungry clients of this fictitious restaurant can visit its website, select one or more dishes and place an order for pick-up. They will receive a notification when their order is ready.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+The restaurant and client both get notified since this app serves as an intermediary.
+
+When an order is placed the restaurant receives the order via SMS. The restaurant can then specify how long it will take to fulfill it. Once they provide this information, the website updates for the client and also notifies them via SMS (Twilio).
+
+## Contribuitors:
+
+This is a team-built application that Ali Bouran, Puneet Kumar, and Rafael Nobrega created for the midterm project from the May 2nd, 2022, Lighthouse Labs Web Development Bootcamp - West cohort.
+The app was built using JavaScript, Express, PostgreSQL, Jquery, Ajax, HTML, CSS/SASS, and Twilio API (for text messages). 
+
+- Ali Bouran (https://github.com/ahbouran)
+- Puneet Kumar (https://github.com/puneet2121)
+- Rafael Nobrega (https://github.com/rafnobrega)
+
+## Final Product
+
+!["Picture Description"](http url here)
+
 
 
 ## Getting Started
@@ -41,3 +53,10 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Chalk 2.4.2
+- Cookie-session 2.0.0
+- Ejs 2.6.2
+- Express 4.17.1
+- Morgan 1.9.1
+- Sass 1.35.1
+- Twilio 3.77.2
