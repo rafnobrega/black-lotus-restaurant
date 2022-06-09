@@ -5,11 +5,8 @@ module.exports = (db) => {
   // GET /register/
   router.get("/", (req, res) => {
     let templateVars = {userId : req.session.userId}
-    // console.log('This is the user id from register',req.session.userId);
     res.render("register",templateVars);
   });
-
-
 
   router.post("/", (req, res) => {
 
@@ -17,7 +14,6 @@ module.exports = (db) => {
     const newUserPassword = req.body.password;
     const newUserName = req.body.name;
     const newUserNumber = req.body.phoneNumber;
-
 
   if (newUserEmail === "" || newUserPassword === "" || newUserName === "" || newUserNumber === "") {
     return res.status(400).send("Please fill in all items.");
@@ -43,9 +39,8 @@ module.exports = (db) => {
       RETURNING users.id;`,
       [newUserName, newUserEmail, newUserPassword, newUserNumber]).then((result => {
         let loginId = result.rows[0].id
-        console.log('login:::::::',loginId)
         req.session.userId = loginId
-        
+
         res.redirect('/home')
 
       }))

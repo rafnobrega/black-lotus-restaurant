@@ -12,7 +12,6 @@ module.exports = (db) => {
   // GET /home/
   router.get("/", (req, res) => {
     let templateVars = {userId : req.session.userId}
-    //console.log('This is the user id ',req.session.userId);
     res.render("home",templateVars);
   });
 

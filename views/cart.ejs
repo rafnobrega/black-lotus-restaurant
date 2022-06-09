@@ -51,8 +51,6 @@
       <p>Payment processed. Thank you for choosing us.</p>
     </div>
 
-
-
     <script>
       let mySummary = JSON.parse(window.localStorage.getItem("summary"));
       let mySubtotal = JSON.parse(window.localStorage.getItem("counterSubtotal") * 1.13);
@@ -66,8 +64,5 @@ ${item.quantity}x ${item.dishTitle} $${item.price} <br>
       $(".pay-order-subtotal").html(`$ ${mySubtotal.toFixed(2)}`)
       $(".pay-order-subtotal").attr("data-value", mySubtotal.toFixed(2))
     </script>
-
-
 </body>
-
 </html>

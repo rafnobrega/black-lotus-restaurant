@@ -3,26 +3,20 @@ $(document).ready(() => {
   const loadOrders = function() {
     $.get('/admin?json=1')
       .then((orderData) => {
-        // console.log('orderData: ', orderData)
         renderOrders(orderData);
 
         $(".send-button").on("click", function(e) {
           e.preventDefault();
           $.post('/admin/checkout')
-          console.log('this:::::::', this);
           const order =$( this )
           .closest( '[data-order-id]')
           .remove()
-          console.log('order::::', order);
-
-
         });
       });
   };
 
   const renderOrders = function(orders) {
     for (let order of orders) {
-      // console.log('order:', order)
       let returnValue = createOrderElement(order);
       $('#order-container').append(returnValue);
     }

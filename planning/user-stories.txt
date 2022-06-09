@@ -43,3 +43,12 @@ USER STORIES - STRETCH:
 - As a user, I want to choose my payment method (cash, credit card, apple pay), because I like to have options.
 - As a user, I want to specify the tip percentage that I want to give, because I am kind to my local restaurants.
 - As a user, I would like to see the most popular items.
+
+___________________________________
+
+STRETCH FEATURES:
+- Implement bcrypt for passwords.
+- Responsive Design.
+- More Sass styling.
+- Menu page "item added" message.
+- Pay My Order button clears everything once the button is clicked (order paid).

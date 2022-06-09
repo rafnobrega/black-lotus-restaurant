@@ -13,10 +13,7 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/menu.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-  <script
-      src="https://kit.fontawesome.com/4ea6e3ab0b.js"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://kit.fontawesome.com/4ea6e3ab0b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,8 +22,6 @@
   </nav>
 
   <h1>Our Menu</h1>
-
-
   <!-- MENU ITEMS GRID - LOOP -->
   <ul class="menu-items">
     <% for (let obj of menu) { %>
@@ -52,33 +47,33 @@
           <!-- PRICE -->
           <div class="item-price">
             $<%= Math.floor(obj.price / 100).toFixed(2) %>
-            <!-- QUANTITY -->
+              <!-- QUANTITY -->
           </div class="menu-item-button">
           <input type="number" class="item-quantity" name="item-quantity" min="0" max="12" value="1">
-          <button type="submit" class="add-to-order" >Add to order</button>
+          <button type="submit" class="add-to-order">Add to order</button>
         </div>
       </li>
       <% } %>
   </ul>
-<!-- PLACE ORDER (IN THE BOTTOM OF THE PAGE) -->
+  <!-- PLACE ORDER (IN THE BOTTOM OF THE PAGE) -->
   </div>
   <div class="place-my-order">
     <span>Items:</span>
     <div class="place-my-order-summary">
-    <p class="place-my-order-summary"></p>
+      <p class="place-my-order-summary"></p>
     </div>
     <div class="subtotal-wrapper">
-    <span>Subtotal:</span>
-    <p class="place-my-order-subtotal">$</p>
+      <span>Subtotal:</span>
+      <p class="place-my-order-subtotal">$</p>
     </div>
-    <div class ="erase-or-review">
-     <button id="erase-my-order-button" class="btn btn-primary" type="submit" value="submit">Start over</button>
-    <form method="POST" action="/cart">
-      <button id="place-my-order-button" class="btn btn-primary" type="submit" value="submit">Checkout</button>
-    </form>
+    <div class="erase-or-review">
+      <button id="erase-my-order-button" class="btn btn-primary" type="submit" value="submit">Start over</button>
+      <form method="POST" action="/cart">
+        <button id="place-my-order-button" class="btn btn-primary" type="submit" value="submit">Checkout</button>
+      </form>
     </div>
   </div>
   <i id="back-to-top" class="fa-solid fa-square-caret-up"></i>
 </body>
-</html>
 
+</html>

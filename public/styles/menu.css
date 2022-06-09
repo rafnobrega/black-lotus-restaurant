@@ -179,16 +179,14 @@ h1 {
   height: 40px;
   font-weight: bold;
   margin-left: 15px;
-   width: 100px;
-   transition: 300ms;
+  width: 100px;
+  transition: 300ms;
 }
 
 #place-my-order-button:hover {
   color: black;
   transform: scale(1.1);
 }
-
-
 
 /* BACK TO TOP BUTTON */
 
@@ -202,11 +200,8 @@ h1 {
   bottom: 17px;
   right: 27px;
   transition: 300ms;
-
-
 }
 
 .fa-solid.fa-square-caret-up:hover {
   color: #bfff78;
-
 }

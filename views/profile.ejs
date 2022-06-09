@@ -43,7 +43,7 @@
         <th>Prices</th>
         <th>Quantity</th>
         <th>Total price</th>
-        
+
      </tr>
     </thead>
     <tbody>
@@ -55,7 +55,7 @@
         <td><%= (orderitem.total_price / 100).toFixed(2) %></td>
       </tr>
         <% } %>
-     
+
     </tbody>
     <tfoot>
       <tr class="subtotal" >
@@ -75,7 +75,6 @@
         <td colspan="3">Special instructions</td>
         <td class ="notes"><%= orderDetails[0].notes %></td>
       </tr>
-    
     </tfoot>
   </table>
 </body>
