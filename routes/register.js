@@ -16,7 +16,7 @@ module.exports = (db) => {
     const newUserName = req.body.name;
     const newUserNumber = req.body.phoneNumber;
 
-    const salt = bcrypt.genSaltSync(10);
+    const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(newUserPassword, salt);
 
   if (newUserEmail === "" || newUserPassword === "" || newUserName === "" || newUserNumber === "") {
@@ -30,9 +30,10 @@ module.exports = (db) => {
       let userArray = result.rows;
 
       for (let i = 0; i < userArray.length; i++) {
-      const result = bcrypt.compareSync(newUserPassword, userArray[i].password)
+      // const result = bcrypt.compareSync(newUserPassword, userArray[i].password)
+      // result = bcrypt.compareSync(password, hashedPassword);
 
-      if (newUserEmail === userArray[i].email || result || newUserNumber === userArray[i].phone) {
+      if (newUserEmail === userArray[i].email || hash === userArray[i].password || newUserNumber === userArray[i].phone) {
        return res.status(401).send("Error, something's already in use!");
          }
        }
