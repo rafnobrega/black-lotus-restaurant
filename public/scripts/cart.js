@@ -29,7 +29,13 @@ $(document).ready(function () {
       }
       $(".payment-msg").css("display", newDivDisplay);
     }, 4500);
+
+      setTimeout(function () {
+        window.location.replace("http://localhost:8080/profile");
+      }, 8000);
   });
+
+
 
   $("#review-order-button").on("click", function (event) {
       window.location.href = "/menu";
