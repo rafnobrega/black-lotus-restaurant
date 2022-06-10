@@ -39,7 +39,7 @@ module.exports = (db) => {
       client.messages
         .create({
           to: process.env.MY_PHONE_NUMBER,
-          from: "(864) 387-4042",
+          from: "(931) 345-4686",
           body: `Your order is confirmed. It will be ready for pickup in ${result.rows[0].approx_time} minutes.`,
         })
         .then((message) => {

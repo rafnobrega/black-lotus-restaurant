@@ -22,7 +22,9 @@ module.exports = (db) => {
     router.post("/", (req, res) => {
       let templateVars = { userId: req.session.userId };
       res.render("cart", templateVars);
+
     });
+
 
     router.post("/checkout", (req, res) => {
       const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -33,7 +35,7 @@ module.exports = (db) => {
       client.messages
         .create({
           to: process.env.MY_PHONE_NUMBER,
-          from: "(864) 387-4042",
+          from: "(931) 345-4686",
           body: "Your order is ready for pickup",
         })
 
