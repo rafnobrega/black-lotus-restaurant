@@ -8,7 +8,6 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession =require('cookie-session');
-
 const bcrypt = require('bcryptjs');
 // const salt = bcrypt.genSaltSync();
 // const hashedPassword = bcrypt.hashSync('password', salt);

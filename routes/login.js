@@ -16,6 +16,7 @@ module.exports = (db) => {
   const email = req.body.email;
   const password = req.body.password;
 
+
   const salt = bcrypt.genSaltSync();
   const hashedPassword = bcrypt.hashSync(password, salt);
   const result = bcrypt.compareSync(password, hashedPassword);
