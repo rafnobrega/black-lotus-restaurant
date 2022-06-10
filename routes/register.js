@@ -14,13 +14,11 @@ module.exports = (db) => {
     const newUserName = req.body.name;
     const newUserNumber = req.body.phoneNumber;
 
-    if (
-      newUserEmail === "" ||
-      newUserPassword === "" ||
-      newUserName === "" ||
-      newUserNumber === ""
-    ) {
-      return res.status(400).send("Please fill in all items.");
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync(newUserPassword, salt);
+
+  if (newUserEmail === "" || newUserPassword === "" || newUserName === "" || newUserNumber === "") {
+    return res.status(400).send("Please fill in all items.");
     }
 
     db.query(
@@ -30,17 +28,16 @@ module.exports = (db) => {
       let userArray = result.rows;
 
       for (let i = 0; i < userArray.length; i++) {
-        if (
-          newUserEmail === userArray[i].email ||
-          newUserPassword === userArray[i].password ||
-          newUserNumber === userArray[i].phone
-        ) {
-          return res.status(401).send("Error, something's already in use!");
-        }
-      }
+      // const result = bcrypt.compareSync(newUserPassword, userArray[i].password)
+      // result = bcrypt.compareSync(password, hashedPassword);
 
-      db.query(
-        `INSERT INTO users
+      if (newUserEmail === userArray[i].email || hash === userArray[i].password || newUserNumber === userArray[i].phone) {
+       return res.status(401).send("Error, something's already in use!");
+         }
+       }
+
+
+      db.query(`INSERT INTO users
       (name, email, password, phone)
       VALUES ($1, $2, $3, $4)
       RETURNING users.id;`,

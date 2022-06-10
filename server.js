@@ -8,11 +8,11 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession =require('cookie-session');
-const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync();
-const hashedPassword = bcrypt.hashSync('password', salt);
 
-// bcrypt.compareSync('plain text', hasedPassword);
+const bcrypt = require('bcryptjs');
+// const salt = bcrypt.genSaltSync();
+// const hashedPassword = bcrypt.hashSync('password', salt);
+// // bcrypt.compareSync('plain text', hasedPassword);
 
 
 // PG database client/connection setup
@@ -58,7 +58,6 @@ const widgetsRoutes = require("./routes/widgets");
 const homeRoutes = require("./routes/home");
 const profileRoutes = require("./routes/profile");
 const adminRoutes = require("./routes/admin");
-const bcryptjs = require("bcryptjs");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
