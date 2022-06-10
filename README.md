@@ -20,8 +20,9 @@ The app was built using JavaScript, Express, PostgreSQL, Jquery, Ajax, HTML, CSS
 
 ## Final Product
 
-!["Picture Description"](http url here)
-
+!["Home Page view"](https://i.ibb.co/nfLzJJZ/Home-Page-view.png)
+!["Menu Page view"](https://i.ibb.co/W3HtXh6/Menu-Page-view.png)
+!["My Orders Page view"](https://i.ibb.co/1MrtN8N/My-Orders-view.png)
 
 
 ## Getting Started
@@ -60,3 +61,4 @@ The app was built using JavaScript, Express, PostgreSQL, Jquery, Ajax, HTML, CSS
 - Morgan 1.9.1
 - Sass 1.35.1
 - Twilio 3.77.2
+- Bcryptjs 2.4.3
