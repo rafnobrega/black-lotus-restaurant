@@ -1,21 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  //get request for Orders page
-  router.get('/' ,(req,res) => {
-      const queryForLatestOrder =
-    ` SELECT
+  //get request for profile page
+  router.get("/", (req, res) => {
+    const queryForLatestOrder = ` SELECT
         orders.id
       FROM orders
       WHERE orders.user_id = $1
       ORDER BY orders.id DESC
       LIMIT 1
       ;
-    `
-    const userId = [req.session.userId]
-    db.query(queryForLatestOrder,userId).then ((sqlresult) => {
-      const latestOrder = sqlresult.rows[0]
+    `;
+    const userId = [req.session.userId];
+    db.query(queryForLatestOrder, userId).then((sqlresult) => {
+      const latestOrder = sqlresult.rows[0];
       const queryForOrderDetails = `
       SELECT
         dishes.title,
@@ -39,21 +38,19 @@ module.exports = (db) => {
         ON dishes_orders.dish_id = dishes.id
 
       WHERE orders.id = $1;
-      ;
-      `
-      db.query(queryForOrderDetails,[latestOrder.id]).then ((orderresults) => {
-        const orderDetails = orderresults.rows
-        console.log(orderDetails)
+      `;
+      db.query(queryForOrderDetails, [latestOrder.id]).then((orderresults) => {
+        const orderDetails = orderresults.rows;
+        console.log(orderDetails);
         let sum = 0;
-        let elements = 0;
-        orderDetails.forEach(element => {
+        orderDetails.forEach((element) => {
           sum = sum + element.price;
         });
-        let totalAmount = orderDetails[0].taxes + orderDetails[0].total_price
-        let templateVars = {orderDetails,sum,userId,totalAmount};
-        res.render('orders',templateVars);
+        let totalAmount = orderDetails[0].taxes + orderDetails[0].total_price;
+        let templateVars = { orderDetails, sum, userId, totalAmount };
+        res.render("profile", templateVars);
       });
     });
-});
-return router;
-}
+  });
+  return router;
+};

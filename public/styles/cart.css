@@ -4,6 +4,8 @@ body {
   max-width: 100vw;
   font-family: "Rajdhani", sans-serif;
   color: white; /* placeholder color - can be deleted when styling each element */
+  height: 100vh;
+
 }
 
 body h1 {
